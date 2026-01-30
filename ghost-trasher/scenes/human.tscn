@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bnhciy5dl5n0s"]
+
+[ext_resource type="Script" uid="uid://csl6wfwgnuy8p" path="res://scripts/human.gd" id="1_4otcn"]
+[ext_resource type="Shader" uid="uid://dc3rtsrokjvcc" path="res://shaders/tile_coloring_shader.gdshader" id="2_mayv3"]
+[ext_resource type="Texture2D" uid="uid://bo42ct5kucmwg" path="res://assets/human/oval.png" id="3_denma"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4u64"]
+shader = ExtResource("2_mayv3")
+shader_parameter/flex_color = Color(0.5019608, 0, 0.6627451, 1)
+shader_parameter/new_color = Color(1, 0.38431373, 0, 1)
+shader_parameter/active = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqnag"]
+atlas = ExtResource("3_denma")
+region = Rect2(0, 0, 122, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7moye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqnag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2jxt"]
+height = 26.0
+
+[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite")]
+gravity_scale = 0.0
+lock_rotation = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_4otcn")
+sprite = NodePath("HumanSprite")
+
+[node name="HumanSprite" type="AnimatedSprite2D" parent="." unique_id=848412424]
+texture_filter = 1
+material = SubResource("ShaderMaterial_f4u64")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_7moye")
+
+[node name="HumanCollision" type="CollisionShape2D" parent="." unique_id=1963402509]
+shape = SubResource("CapsuleShape2D_s2jxt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

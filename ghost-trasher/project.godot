@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="GhostTrasher"
+run/main_scene="uid://ryh443nptj7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://assets/icon.svg"
+config/icon="res://assets/others/icon.svg"
 
 [physics]
 
