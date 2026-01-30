@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnhciy5dl5n0s"]
 
 [ext_resource type="Script" uid="uid://csl6wfwgnuy8p" path="res://scripts/human.gd" id="1_4otcn"]
-[ext_resource type="Shader" uid="uid://dc3rtsrokjvcc" path="res://shaders/tile_coloring_shader.gdshader" id="2_mayv3"]
+[ext_resource type="Shader" uid="uid://dc3rtsrokjvcc" path="res://shaders/coloring_shader.gdshader" id="2_mayv3"]
 [ext_resource type="Texture2D" uid="uid://bo42ct5kucmwg" path="res://assets/human/oval.png" id="3_denma"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4u64"]

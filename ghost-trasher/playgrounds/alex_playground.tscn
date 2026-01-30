@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ryh443nptj7u"]
+
+[ext_resource type="PackedScene" uid="uid://dij0pon1ksbo0" path="res://scenes/room.tscn" id="1_j8e66"]
+[ext_resource type="Script" uid="uid://ba8oy8afq6xi" path="res://scripts/human_spawner.gd" id="2_83cg8"]
+
+[node name="AlexPlayground" type="Node2D" unique_id=662008568]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=7864286]
+zoom = Vector2(5, 5)
+
+[node name="Room" parent="." unique_id=52600169 instance=ExtResource("1_j8e66")]
+
+[node name="HumanSpawner" type="Node2D" parent="." unique_id=476753582]
+script = ExtResource("2_83cg8")
+human_count = 30.0
