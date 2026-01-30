@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://nim84fid4yd7"]
+
+[ext_resource type="Texture2D" uid="uid://ncm5ed6prcm4" path="res://assets/chest.png" id="1_4t86o"]
+[ext_resource type="Script" uid="uid://bfrq1hkw6qtmu" path="res://interaction_components/test_chest.gd" id="1_b2ehd"]
+[ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://interaction_components/interactable.tscn" id="2_b2ehd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7swy"]
+size = Vector2(231, 155)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7swy"]
+radius = 210.00238
+
+[node name="TestChest" type="StaticBody2D" unique_id=404043651]
+script = ExtResource("1_b2ehd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1869648003]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_t7swy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1266555590]
+texture = ExtResource("1_4t86o")
+
+[node name="Interactable" parent="." unique_id=1858754028 instance=ExtResource("2_b2ehd")]
+interact_name = "Chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=94377051]
+shape = SubResource("CircleShape2D_t7swy")

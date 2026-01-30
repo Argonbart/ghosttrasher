@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0wpp47x16dvw" path="res://assets/run_images/run_left.png" id="7_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dt4fxneeqxjpg" path="res://assets/run_images/run_right.png" id="8_oprun"]
 [ext_resource type="Texture2D" uid="uid://dfobxfuijx3jm" path="res://assets/run_images/run_up.png" id="9_a8ls1"]
+[ext_resource type="PackedScene" uid="uid://cnbo43gle4o4d" path="res://interaction_components/interacting_component.tscn" id="10_y4r1p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
 atlas = ExtResource("2_ur7pv")
@@ -516,3 +517,5 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
+
+[node name="InteractingComponent" parent="." unique_id=1476116324 instance=ExtResource("10_y4r1p")]
