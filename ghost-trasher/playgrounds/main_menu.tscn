@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://benkhwj7vqtrw"]
 
-[ext_resource type="Texture2D" uid="uid://bpraaynwi812x" path="res://assets/others/trashpandas/trashpanda.png" id="1_446hn"]
+[ext_resource type="Texture2D" uid="uid://bpraaynwi812x" path="res://assets/menu/trashpanda.png" id="1_446hn"]
 [ext_resource type="Script" uid="uid://ccmarw6b4aqer" path="res://scripts/main_menu.gd" id="1_vu8k6"]
-[ext_resource type="VideoStream" uid="uid://h676ded1taii" path="res://assets/others/trashpandas/trashpanda.ogv" id="3_2kywn"]
+[ext_resource type="VideoStream" uid="uid://h676ded1taii" path="res://assets/menu/trashpanda.ogv" id="3_2kywn"]
 
 [node name="MainMenu" type="Node2D" unique_id=1174218410]
 script = ExtResource("1_vu8k6")
