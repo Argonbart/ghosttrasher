@@ -5,6 +5,7 @@ class_name Human
 # exports
 @export_category("Nodes")
 @export var sprite: AnimatedSprite2D
+@export var ghost_slot: Node2D
 @export_category("Parameters")
 @export var change_direction_time: float = 1.5
 @export_category("Movement Bounding")
@@ -15,6 +16,9 @@ class_name Human
 var direction: Vector2 = Vector2.ZERO
 var timer: float = 0.0
 var speed: float = 0.0
+
+# ghost related variables
+#
 
 
 func _ready():

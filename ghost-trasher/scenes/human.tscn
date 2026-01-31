@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2jxt"]
 height = 26.0
 
-[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite")]
+[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite", "ghost_slot")]
 gravity_scale = 0.0
 lock_rotation = true
 custom_integrator = true
@@ -36,6 +36,7 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_4otcn")
 sprite = NodePath("HumanSprite")
+ghost_slot = NodePath("GhostSlot")
 
 [node name="HumanSprite" type="AnimatedSprite2D" parent="." unique_id=848412424]
 texture_filter = 1
@@ -45,5 +46,7 @@ sprite_frames = SubResource("SpriteFrames_7moye")
 
 [node name="HumanCollision" type="CollisionShape2D" parent="." unique_id=1963402509]
 shape = SubResource("CapsuleShape2D_s2jxt")
+
+[node name="GhostSlot" type="Node2D" parent="." unique_id=1505579496]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

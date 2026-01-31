@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://v0up22nlk3ty"]
+
+[ext_resource type="Script" uid="uid://br4ey2bosuep5" path="res://scripts/ghost.gd" id="1_l5lq6"]
+[ext_resource type="Texture2D" uid="uid://dkngsgrg70sxv" path="res://assets/ghost/ghost.png" id="1_t76o2"]
+[ext_resource type="Shader" uid="uid://u0uqxek0cb1" path="res://shaders/ghost_coloring_shader.gdshader" id="2_bbnym"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_veat2"]
+shader = ExtResource("2_bbnym")
+shader_parameter/flex_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5lq6"]
+atlas = ExtResource("1_t76o2")
+region = Rect2(0, 0, 389, 456)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbnym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5lq6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ghost" type="Node2D" unique_id=1786284202]
+script = ExtResource("1_l5lq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868258122]
+material = SubResource("ShaderMaterial_veat2")
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_bbnym")

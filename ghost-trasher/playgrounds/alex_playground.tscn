@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dij0pon1ksbo0" path="res://scenes/room.tscn" id="1_j8e66"]
 [ext_resource type="Script" uid="uid://ba8oy8afq6xi" path="res://scripts/human_spawner.gd" id="2_83cg8"]
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="3_83cg8"]
+[ext_resource type="PackedScene" uid="uid://v0up22nlk3ty" path="res://scenes/ghost.tscn" id="4_sacs3"]
 
 [node name="AlexPlayground" type="Node2D" unique_id=662008568]
 
@@ -17,3 +18,8 @@ script = ExtResource("2_83cg8")
 human_count = 30.0
 
 [node name="Player" parent="YSorted" unique_id=125667676 instance=ExtResource("3_83cg8")]
+
+[node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans") instance=ExtResource("4_sacs3")]
+visible = false
+z_index = 1
+humans = NodePath("../HumanSpawner")
