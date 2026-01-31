@@ -7,7 +7,7 @@
 
 [sub_resource type="Environment" id="Environment_sacs3"]
 background_mode = 3
-background_energy_multiplier = 9.66
+background_energy_multiplier = 16.0
 glow_enabled = true
 glow_hdr_threshold = 2.0
 glow_hdr_luminance_cap = 256.0
@@ -28,6 +28,7 @@ position = Vector2(-133, 0)
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true
 script = ExtResource("2_83cg8")
+human_count = 200.0
 
 [node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans") instance=ExtResource("4_sacs3")]
 visible = false

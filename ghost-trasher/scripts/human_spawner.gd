@@ -13,5 +13,5 @@ func _ready():
 
 func spawn_human():
 	var new_human: Human = HUMAN.instantiate()
-	new_human.global_position = Vector2(randf_range(-150.0, 150.0), randf_range(-60.0, 60.0))
+	new_human.global_position = Vector2(randf_range(-150.0, 150.0), randf_range(-150.0, 150.0))
 	add_child(new_human)

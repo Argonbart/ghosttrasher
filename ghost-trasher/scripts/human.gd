@@ -9,7 +9,10 @@ class_name Human
 @export var ghost_slot: Node2D
 @export var interactable: Interactable
 @export_category("Parameters")
-@export var change_direction_time: float = 1.5
+@export_range(1.0, 20.0, 0.1) var change_direction_time: float = 1.5
+@export_range(0.0, 5.0, 0.1) var change_direction_time_vary: float = 0.5
+@export_range(1.0, 100.0, 1.0) var min_speed: float = 10.0
+@export_range(1.0, 100.0, 1.0) var max_speed: float = 30.0
 @export_category("Movement Bounding")
 @export var area_center: Vector2 = Vector2.ZERO
 @export var radius_x: float = 200.0   # east / west reach
@@ -76,14 +79,14 @@ func _pick_new_direction():
 		direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 	else:
 		direction = Vector2(0.0, 0.0)
-	timer = change_direction_time + randf_range(-0.5, 0.5)
-	speed = randf_range(10.0, 30.0)
+	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
+	speed = randf_range(min_speed, max_speed)
 
 
 func _bounce_of_body(body):
 	direction = (global_position - body.global_position).normalized()
-	timer = change_direction_time + randf_range(-0.5, 0.5)
-	speed = randf_range(10.0, 30.0)
+	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
+	speed = randf_range(min_speed, max_speed)
 
 
 func _keep_inside_bounds():
@@ -117,6 +120,7 @@ func _set_random_appearance():
 	sprite.sprite_frames = sprite_frames
 	outline_sprite.sprite_frames = sprite_frames
 	sprite.play("default")
+	outline_sprite.play("default")
 	
 	# set random color
 	var mat = sprite.material.duplicate()
