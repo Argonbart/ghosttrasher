@@ -3,6 +3,8 @@ class_name Ghost
 
 
 @export var humans: Node2D
+@export var sprite: AnimatedSprite2D
+@export var sprite_outline: AnimatedSprite2D
 @export var trigger_shape: CollisionShape2D
 var parent_human:Human
 
@@ -18,6 +20,12 @@ func _ready():
 
 
 func _process(_delta):
+	
+	# flip
+	if get_parent() and get_parent() is Human:
+		sprite.flip_h = get_parent().sprite.flip_h
+		sprite_outline.flip_h = get_parent().sprite.flip_h
+	
 	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman:
 		_change_human()
 

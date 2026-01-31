@@ -53,7 +53,9 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4u64"]
 shader = ExtResource("2_mayv3")
 shader_parameter/flex_color = Color(0.84313726, 0.18431373, 0.05490196, 1)
+shader_parameter/flex_color_2 = Color(0.39607844, 0.8901961, 0.2, 1)
 shader_parameter/new_color = Color(1, 0.38431373, 0, 1)
+shader_parameter/new_color_2 = Color(0, 0, 1, 1)
 shader_parameter/world_state = 0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2jxt"]
@@ -94,9 +96,8 @@ autoplay = "default"
 texture_filter = 1
 material = SubResource("ShaderMaterial_f4u64")
 scale = Vector2(0.025, 0.025)
-sprite_frames = SubResource("SpriteFrames_7moye")
+sprite_frames = ExtResource("3_oxdja")
 autoplay = "default"
-frame_progress = 0.9116305
 
 [node name="HumanCollision" type="CollisionShape2D" parent="." unique_id=1963402509]
 shape = SubResource("CapsuleShape2D_s2jxt")
