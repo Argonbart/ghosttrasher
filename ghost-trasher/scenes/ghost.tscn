@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://v0up22nlk3ty"]
 
 [ext_resource type="Script" uid="uid://br4ey2bosuep5" path="res://scripts/ghost.gd" id="1_l5lq6"]
-[ext_resource type="Shader" uid="uid://u0uqxek0cb1" path="res://shaders/ghost_coloring_shader.gdshader" id="2_bbnym"]
 [ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="2_veat2"]
 [ext_resource type="Texture2D" uid="uid://o6ajkt3l4x63" path="res://assets/human/sprite_sheets/ghost_moving.png" id="3_veat2"]
 
@@ -40,10 +39,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_veat2"]
-shader = ExtResource("2_bbnym")
-shader_parameter/flex_color = Color(1, 1, 1, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbnym"]
 radius = 150.0
 
@@ -62,7 +57,6 @@ autoplay = "default"
 frame_progress = 0.59359986
 
 [node name="GhostSprite" type="AnimatedSprite2D" parent="." unique_id=868258122]
-material = SubResource("ShaderMaterial_veat2")
 position = Vector2(0, -4)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_5mfnq")

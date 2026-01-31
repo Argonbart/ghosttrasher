@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var tile_map: TileMapLayer
-@export var flowers: Sprite2D
+@export var flowers: TileMapLayer
 
 
 func _ready():
