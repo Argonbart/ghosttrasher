@@ -15,7 +15,7 @@ y_sort_enabled = true
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true
 script = ExtResource("2_83cg8")
-human_count = 30.0
+human_count = 35.0
 
 [node name="Player" parent="YSorted" unique_id=125667676 instance=ExtResource("3_83cg8")]
 

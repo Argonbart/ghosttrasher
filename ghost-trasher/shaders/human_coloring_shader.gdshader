@@ -5,7 +5,8 @@ uniform vec4 new_color : source_color;
 uniform int world_state = 0;
 
 void fragment() {
-	if (world_state == 0 && COLOR == flex_color) {
+	float color_diff = length(flex_color.rgb - COLOR.rgb);
+	if (world_state == 0 && color_diff < 0.05) {
 		COLOR = new_color;
 	}
 	if (world_state == 1 && COLOR == vec4(0.0, 0.0, 0.0, 1.0)) {

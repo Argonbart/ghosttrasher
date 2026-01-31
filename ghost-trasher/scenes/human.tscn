@@ -3,36 +3,57 @@
 [ext_resource type="Script" uid="uid://csl6wfwgnuy8p" path="res://scripts/human.gd" id="1_4otcn"]
 [ext_resource type="Shader" uid="uid://drq3vygc5fq81" path="res://shaders/outline.gdshader" id="2_4otcn"]
 [ext_resource type="Shader" uid="uid://dc3rtsrokjvcc" path="res://shaders/human_coloring_shader.gdshader" id="2_mayv3"]
-[ext_resource type="Texture2D" uid="uid://bo42ct5kucmwg" path="res://assets/human/oval.png" id="3_denma"]
+[ext_resource type="Texture2D" uid="uid://dn4ginhopffb" path="res://assets/human/human_1_dance.png" id="3_mayv3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mayv3"]
 shader = ExtResource("2_4otcn")
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/width = 5.0000002375
 shader_parameter/pattern = 0
-shader_parameter/inside = false
+shader_parameter/inside = true
 shader_parameter/add_margins = false
 shader_parameter/number_of_images = Vector2(1, 1)
 shader_parameter/outline_active = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vqnag"]
-atlas = ExtResource("3_denma")
-region = Rect2(0, 0, 122, 153)
+[sub_resource type="AtlasTexture" id="AtlasTexture_denma"]
+atlas = ExtResource("3_mayv3")
+region = Rect2(0, 0, 822, 1067)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7jhf"]
+atlas = ExtResource("3_mayv3")
+region = Rect2(822, 0, 822, 1067)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0vvy"]
+atlas = ExtResource("3_mayv3")
+region = Rect2(1644, 0, 822, 1067)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxdja"]
+atlas = ExtResource("3_mayv3")
+region = Rect2(2466, 0, 822, 1067)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7moye"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vqnag")
+"texture": SubResource("AtlasTexture_denma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7jhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0vvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxdja")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4u64"]
 shader = ExtResource("2_mayv3")
-shader_parameter/flex_color = Color(0.5019608, 0, 0.6627451, 1)
+shader_parameter/flex_color = Color(0.84313726, 0.18431373, 0.05490196, 1)
 shader_parameter/new_color = Color(1, 0.38431373, 0, 1)
 shader_parameter/world_state = 0
 
@@ -51,16 +72,21 @@ outline_sprite = NodePath("HumanOutline")
 ghost_slot = NodePath("GhostSlot")
 
 [node name="HumanOutline" type="AnimatedSprite2D" parent="." unique_id=392676022]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_mayv3")
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.026, 0.026)
 sprite_frames = SubResource("SpriteFrames_7moye")
+autoplay = "default"
+frame_progress = 0.5712666
 
 [node name="HumanSprite" type="AnimatedSprite2D" parent="." unique_id=848412424]
 texture_filter = 1
 material = SubResource("ShaderMaterial_f4u64")
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.025, 0.025)
 sprite_frames = SubResource("SpriteFrames_7moye")
+autoplay = "default"
+frame_progress = 0.9115089
 
 [node name="HumanCollision" type="CollisionShape2D" parent="." unique_id=1963402509]
 shape = SubResource("CapsuleShape2D_s2jxt")
