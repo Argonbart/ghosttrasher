@@ -15,6 +15,14 @@ run/main_scene="uid://ryh443nptj7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/others/icon.svg"
 
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/vsync/vsync_mode=0
+
 [input]
 
 move_up={
