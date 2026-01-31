@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="1_3xvyr"]
 [ext_resource type="Texture2D" uid="uid://do2gioxxj2ihw" path="res://assets/player_animations/idle/idle_down.png" id="2_jprfq"]
-[ext_resource type="PackedScene" uid="uid://nim84fid4yd7" path="res://interaction_components/test_chest.tscn" id="3_qnsgo"]
 
 [node name="MarkusPlayground" type="Node2D" unique_id=864075603]
 
@@ -13,6 +12,3 @@ speed = 50.0
 [node name="IdleDown" type="Sprite2D" parent="." unique_id=974071423]
 position = Vector2(54, 64)
 texture = ExtResource("2_jprfq")
-
-[node name="TestChest" parent="." unique_id=404043651 instance=ExtResource("3_qnsgo")]
-position = Vector2(-192, -200)
