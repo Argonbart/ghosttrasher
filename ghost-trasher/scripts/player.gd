@@ -12,7 +12,7 @@ extends CharacterBody2D
 var last_animation: String = "idle_down"
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	#wasd direction
 	var input_direction: Vector2 = Vector2(

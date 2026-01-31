@@ -42,6 +42,11 @@ func _physics_process(delta):
 	_keep_inside_bounds()
 
 
+func _input(event):
+	if event is InputEventKey and event.keycode == KEY_Q and event.pressed and not event.echo:
+		sprite.material.set_shader_parameter("active", not sprite.material.get_shader_parameter("active"))
+
+
 func _pick_new_direction():
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 	timer = change_direction_time + randf_range(-0.5, 0.5)
@@ -76,7 +81,7 @@ func _set_random_color():
 	sprite.material = mat
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	direction = -direction
 	timer = 1.0
 	speed = randf_range(10.0, 30.0)

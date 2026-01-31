@@ -8,4 +8,7 @@ void fragment() {
 	if (active && COLOR == flex_color) {
 		COLOR = new_color;
 	}
+	if (!active && COLOR == vec4(0.0, 0.0, 0.0, 1.0)) {
+		COLOR = vec4(1.0, 1.0, 1.0, 1.0);
+	}
 }

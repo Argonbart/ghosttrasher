@@ -507,15 +507,19 @@ size = Vector2(20, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=125667676]
 script = ExtResource("1_3vyb7")
+speed = 80.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=637743644]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_p21yu")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928621681]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_g2els")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
+zoom = Vector2(4, 4)
 
 [node name="InteractingComponent" parent="." unique_id=1476116324 instance=ExtResource("10_y4r1p")]
