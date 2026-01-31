@@ -12,6 +12,7 @@ class_name Human
 @export_category("Movement Bounding")
 @export var area_min: Vector2 = Vector2(-200, -100)
 @export var area_max: Vector2 = Vector2(200, 100)
+@onready var interactable: Interactable = $Interactable
 
 # variables
 var direction: Vector2 = Vector2.ZERO
@@ -27,6 +28,8 @@ func _ready():
 	# connect signals
 	WorldManager.connect("world_state_changed", _on_world_state_changed)
 	
+	interactable.interact = Callable(self, "_on_interact")
+	
 	# set rigid body parameters
 	gravity_scale = 0.0
 	linear_damp = 0.0
@@ -35,6 +38,9 @@ func _ready():
 	_pick_new_direction()
 	_set_random_color()
 	_set_outline_material()
+
+func _on_interact():
+	print("hier wurde interacted")
 
 
 func _physics_process(delta):
