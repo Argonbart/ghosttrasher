@@ -8,6 +8,7 @@ const base_text = "[E]"
 
 var active_areas = []
 var can_interact: bool = true
+var last_interactable: Interactable
 
 
 func register_area(area: Interactable):
@@ -23,11 +24,16 @@ func unregister_area(area: Interactable):
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
+		if active_areas.size() > 0:
+			for i in range(active_areas.size()):
+				active_areas[i].outline.hide()
 		label.text = base_text
+		last_interactable = active_areas[0]
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= active_areas[0].label_offset
 		label.global_position.x -= label.size.x / 2
 		label.show()
+		active_areas[0].outline.show()
 	else:
 		label.hide()
 
