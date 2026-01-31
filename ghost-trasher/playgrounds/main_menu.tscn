@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://benkhwj7vqtrw"]
+
+[ext_resource type="Texture2D" uid="uid://bpraaynwi812x" path="res://assets/others/trashpandas/trashpanda.png" id="1_446hn"]
+[ext_resource type="Script" uid="uid://ccmarw6b4aqer" path="res://scripts/main_menu.gd" id="1_vu8k6"]
+[ext_resource type="VideoStream" uid="uid://h676ded1taii" path="res://assets/others/trashpandas/trashpanda.ogv" id="3_2kywn"]
+
+[node name="MainMenu" type="Node2D" unique_id=1174218410]
+script = ExtResource("1_vu8k6")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1639514557]
+position = Vector2(961.00006, 540)
+scale = Vector2(3.205, 1.8)
+texture = ExtResource("1_446hn")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2098789370]
+offset_left = 732.0
+offset_top = 162.0
+offset_right = 1452.0
+offset_bottom = 1442.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("3_2kywn")
+volume_db = -30.0
+
+[node name="ButtonManager" type="Control" parent="." unique_id=838535745]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager" unique_id=1473811273]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 336.0
+offset_right = 355.0
+offset_bottom = 421.0
+text = "Start"
+
+[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=844394805]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 443.0
+offset_right = 355.0
+offset_bottom = 528.0
+text = "Tutorial"
+
+[node name="Quit" type="Button" parent="ButtonManager" unique_id=1416652166]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 550.0
+offset_right = 355.0
+offset_bottom = 635.0
+text = "Quit"
+
+[node name="Button" type="Button" parent="ButtonManager" unique_id=1282174584]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 395.0
+offset_right = 927.0
+offset_bottom = 403.0
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ButtonManager/Button" to="." method="_on_button_pressed"]
