@@ -47,13 +47,15 @@ shader_parameter/flex_color = Color(1, 1, 1, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbnym"]
 radius = 150.0
 
-[node name="Ghost" type="Node2D" unique_id=1786284202 node_paths=PackedStringArray("trigger_shape")]
+[node name="Ghost" type="Node2D" unique_id=1786284202 node_paths=PackedStringArray("sprite", "sprite_outline", "trigger_shape")]
 script = ExtResource("1_l5lq6")
+sprite = NodePath("GhostSprite")
+sprite_outline = NodePath("GhostOutline")
 trigger_shape = NodePath("TriggerArea/TriggerShape")
 
 [node name="GhostOutline" type="AnimatedSprite2D" parent="." unique_id=1464133391]
 material = SubResource("ShaderMaterial_5mfnq")
-position = Vector2(0, -12)
+position = Vector2(0, -4)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_5mfnq")
 autoplay = "default"
@@ -61,7 +63,7 @@ frame_progress = 0.59359986
 
 [node name="GhostSprite" type="AnimatedSprite2D" parent="." unique_id=868258122]
 material = SubResource("ShaderMaterial_veat2")
-position = Vector2(0, -12)
+position = Vector2(0, -4)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_5mfnq")
 autoplay = "default"

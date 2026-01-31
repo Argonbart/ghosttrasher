@@ -125,6 +125,7 @@ func _set_random_appearance():
 	# set random color
 	var mat = sprite.material.duplicate()
 	mat.set_shader_parameter("new_color", Color(randf(), randf(), randf()))
+	mat.set_shader_parameter("new_color_2", Color(randf(), randf(), randf()))
 	sprite.material = mat
 
 
