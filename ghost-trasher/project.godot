@@ -18,6 +18,7 @@ config/icon="res://assets/others/icon.svg"
 [autoload]
 
 WorldManager="*uid://cqdo56bqirvlf"
+InteractionManager="*uid://c5hfvf8wfnrsd"
 
 [debug]
 
@@ -26,6 +27,10 @@ settings/stdout/print_fps=true
 [display]
 
 window/vsync/vsync_mode=0
+
+[global_group]
+
+player=""
 
 [input]
 
