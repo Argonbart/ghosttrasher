@@ -104,8 +104,9 @@ shape = SubResource("CapsuleShape2D_s2jxt")
 
 [node name="GhostSlot" type="Node2D" parent="." unique_id=1505579496]
 
-[node name="Interactable" parent="." unique_id=1858754028 node_paths=PackedStringArray("outline") instance=ExtResource("5_denma")]
+[node name="Interactable" parent="." unique_id=1858754028 node_paths=PackedStringArray("outline", "parent_object") instance=ExtResource("5_denma")]
 outline = NodePath("../HumanOutline")
+parent_object = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1944714637]
 shape = SubResource("CapsuleShape2D_c7jhf")

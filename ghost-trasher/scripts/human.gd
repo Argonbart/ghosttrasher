@@ -19,6 +19,7 @@ class_name Human
 @export var radius_y: float = 120.0   # north / south reach
 @export_category("Appearances")
 @export var sprite_frames_array: Array[SpriteFrames]
+var marked_by_talisman: bool = false
 
 
 # variables
@@ -45,7 +46,22 @@ func _ready():
 
 
 func _on_interact():
-	print("hier wurde interacted")
+	if !marked_by_talisman && Globals.player.remaining_talismans > 0:
+		marked_by_talisman = true
+		InteractionManager.unregister_area_unmarked(interactable)
+		InteractionManager.register_area_marked(interactable)
+		Globals.player.remaining_talismans -= 1
+		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
+		outline_sprite.material.set_shader_parameter("line_color", Color.GREEN)
+	elif marked_by_talisman: 
+		marked_by_talisman = false
+		InteractionManager.unregister_area_marked(interactable)
+		Globals.player.remaining_talismans += 1
+		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
+		outline_sprite.hide()
+		InteractionManager.label.hide()
+		outline_sprite.material.set_shader_parameter("line_color", Color.RED)
+		InteractionManager.register_area_unmarked(interactable)
 
 
 func _physics_process(delta):

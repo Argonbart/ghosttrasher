@@ -6,6 +6,7 @@ class_name Ghost
 @export var sprite: AnimatedSprite2D
 @export var sprite_outline: AnimatedSprite2D
 @export var trigger_shape: CollisionShape2D
+var parent_human:Human
 
 var current_state: int = 0
 var player_in_range: bool = false
@@ -25,7 +26,7 @@ func _process(_delta):
 		sprite.flip_h = get_parent().sprite.flip_h
 		sprite_outline.flip_h = get_parent().sprite.flip_h
 	
-	if current_state == 1 and player_in_range:
+	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman:
 		_change_human()
 
 
@@ -45,6 +46,7 @@ func _change_human():
 		return
 	var next_human = far_humans[randi_range(0, len(far_humans) - 1)]
 	reparent(next_human, false)
+	parent_human = next_human
 	player_in_range = false
 
 

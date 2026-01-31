@@ -1,12 +1,17 @@
 extends CharacterBody2D
+class_name Player
 
 #parameters
 @export_category("Parameters")
 @export var speed: float = 25.0
+@export var max_talismans: int = 3
+var remaining_talismans: int
+
 
 #nodes
 @export_category("Nodes")
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var talismans_label: RichTextLabel = $RichTextLabel
 
 #variables
 var last_animation: String = "idle_down"
@@ -15,10 +20,12 @@ var last_animation: String = "idle_down"
 func _ready():
 	Globals.player = self
 	InteractionManager.player = self
+	remaining_talismans = max_talismans
+	talismans_label.text = "Remaining Talismans: " + str(remaining_talismans)
 
 
 func _physics_process(_delta: float) -> void:
-	
+
 	#wasd direction
 	var input_direction: Vector2 = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),

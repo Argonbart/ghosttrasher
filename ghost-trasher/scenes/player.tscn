@@ -522,3 +522,19 @@ shape = SubResource("CapsuleShape2D_ur7pv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
 zoom = Vector2(4.1, 4.1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112099198]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1584397657]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 29.0
+offset_top = -129.0
+offset_right = 231.0
+offset_bottom = -89.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Remaining Talsimans: "
