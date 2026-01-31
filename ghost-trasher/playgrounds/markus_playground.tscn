@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c51phxcw35jd1"]
 
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="1_3xvyr"]
-[ext_resource type="Texture2D" uid="uid://do2gioxxj2ihw" path="res://assets/idle_images/idle_down.png" id="2_jprfq"]
+[ext_resource type="Texture2D" uid="uid://do2gioxxj2ihw" path="res://assets/player_animations/idle/idle_down.png" id="2_jprfq"]
 [ext_resource type="PackedScene" uid="uid://nim84fid4yd7" path="res://interaction_components/test_chest.tscn" id="3_qnsgo"]
 
 [node name="MarkusPlayground" type="Node2D" unique_id=864075603]

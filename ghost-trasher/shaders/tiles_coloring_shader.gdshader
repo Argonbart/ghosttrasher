@@ -1,9 +1,9 @@
 shader_type canvas_item;
 
-uniform bool active = false;
+uniform int world_state = 0;
 
 void fragment() {
-	if (!active) {
+	if (world_state == 1) {
 		COLOR *= 0.6;
 	}
 }

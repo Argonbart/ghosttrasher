@@ -19,6 +19,9 @@ var speed: float = 0.0
 
 func _ready():
 	
+	# connect signals
+	WorldManager.connect("world_state_changed", _on_world_state_changed)
+	
 	# set rigid body parameters
 	gravity_scale = 0.0
 	linear_damp = 0.0
@@ -42,13 +45,18 @@ func _physics_process(delta):
 	_keep_inside_bounds()
 
 
-func _input(event):
-	if event is InputEventKey and event.keycode == KEY_Q and event.pressed and not event.echo:
-		sprite.material.set_shader_parameter("active", not sprite.material.get_shader_parameter("active"))
+func _on_world_state_changed(new_state):
+	sprite.material.set_shader_parameter("world_state", new_state)
 
 
 func _pick_new_direction():
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+	timer = change_direction_time + randf_range(-0.5, 0.5)
+	speed = randf_range(10.0, 30.0)
+
+
+func _bounce_of_body(body):
+	direction = (global_position - body.global_position).normalized()
 	timer = change_direction_time + randf_range(-0.5, 0.5)
 	speed = randf_range(10.0, 30.0)
 
@@ -81,7 +89,5 @@ func _set_random_color():
 	sprite.material = mat
 
 
-func _on_body_entered(_body):
-	direction = -direction
-	timer = 1.0
-	speed = randf_range(10.0, 30.0)
+func _on_body_entered(body):
+	_bounce_of_body(body)

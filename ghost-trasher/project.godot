@@ -15,6 +15,10 @@ run/main_scene="uid://ryh443nptj7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/others/icon.svg"
 
+[autoload]
+
+WorldManager="*uid://cqdo56bqirvlf"
+
 [debug]
 
 settings/stdout/print_fps=true

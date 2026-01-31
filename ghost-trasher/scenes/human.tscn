@@ -8,7 +8,7 @@
 shader = ExtResource("2_mayv3")
 shader_parameter/flex_color = Color(0.5019608, 0, 0.6627451, 1)
 shader_parameter/new_color = Color(1, 0.38431373, 0, 1)
-shader_parameter/active = true
+shader_parameter/world_state = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqnag"]
 atlas = ExtResource("3_denma")

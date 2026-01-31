@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nim84fid4yd7"]
 
-[ext_resource type="Texture2D" uid="uid://ncm5ed6prcm4" path="res://assets/chest.png" id="1_4t86o"]
+[ext_resource type="Texture2D" uid="uid://ncm5ed6prcm4" path="res://assets/others/chest.png" id="1_4t86o"]
 [ext_resource type="Script" uid="uid://bfrq1hkw6qtmu" path="res://interaction_components/test_chest.gd" id="1_b2ehd"]
 [ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://interaction_components/interactable.tscn" id="2_b2ehd"]
 

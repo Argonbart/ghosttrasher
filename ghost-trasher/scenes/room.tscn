@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85yof"]
 shader = ExtResource("1_85yof")
-shader_parameter/active = true
+shader_parameter/world_state = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffxv4"]
 texture = ExtResource("1_36trf")
