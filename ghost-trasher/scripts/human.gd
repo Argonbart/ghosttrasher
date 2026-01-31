@@ -5,6 +5,7 @@ class_name Human
 # exports
 @export_category("Nodes")
 @export var sprite: AnimatedSprite2D
+@export var outline_sprite: AnimatedSprite2D
 @export var ghost_slot: Node2D
 @export_category("Parameters")
 @export var change_direction_time: float = 1.5
@@ -33,6 +34,7 @@ func _ready():
 	# initialise
 	_pick_new_direction()
 	_set_random_color()
+	_set_outline_material()
 
 
 func _physics_process(delta):
@@ -91,6 +93,15 @@ func _set_random_color():
 	var mat = sprite.material.duplicate()
 	mat.set_shader_parameter("new_color", Color(randf(), randf(), randf()))
 	sprite.material = mat
+
+
+func _set_outline_material():
+	var mat = outline_sprite.material.duplicate()
+	outline_sprite.material = mat
+
+
+func toggle_outline():
+	outline_sprite.material.set_shader_parameter("outline_active", !outline_sprite.material.get_shader_parameter("outline_active"))
 
 
 func _on_body_entered(body):
