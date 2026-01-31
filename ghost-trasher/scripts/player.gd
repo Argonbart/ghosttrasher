@@ -14,6 +14,7 @@ var last_animation: String = "idle_down"
 
 func _ready():
 	Globals.player = self
+	InteractionManager.player = self
 
 
 func _physics_process(_delta: float) -> void:

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+var player: CharacterBody2D
 @onready var label: Label = $Label
 
 
@@ -53,3 +53,6 @@ func _input(event: InputEvent) -> void:
 			await active_areas[0].interact.call()
 			
 			can_interact = true
+
+func _set_player():
+	player = get_tree().get_first_node_in_group("player")
