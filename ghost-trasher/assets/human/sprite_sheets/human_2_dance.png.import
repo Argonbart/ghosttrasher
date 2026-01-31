@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn4ginhopffb"
-path="res://.godot/imported/human_1_dance.png-32cc440c2cb80661e59c0b1c3ce3c58d.ctex"
+uid="uid://dwkyob2xdivwx"
+path="res://.godot/imported/human_2_dance.png-51e23b0666b55194c5557658562156e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/human/human_1_dance.png"
-dest_files=["res://.godot/imported/human_1_dance.png-32cc440c2cb80661e59c0b1c3ce3c58d.ctex"]
+source_file="res://assets/human/sprite_sheets/human_2_dance.png"
+dest_files=["res://.godot/imported/human_2_dance.png-51e23b0666b55194c5557658562156e0.ctex"]
 
 [params]
 

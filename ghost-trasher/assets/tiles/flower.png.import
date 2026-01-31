@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3km3xdqiloen"
-path="res://.godot/imported/icon.svg-da22bd18220bb40066ed1e7f78a97ecb.ctex"
+uid="uid://dw24prgpnl7kf"
+path="res://.godot/imported/flower.png-5678cf3fca01af9e89e63bfcbe036e21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/others/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-da22bd18220bb40066ed1e7f78a97ecb.ctex"]
+source_file="res://assets/tiles/flower.png"
+dest_files=["res://.godot/imported/flower.png-5678cf3fca01af9e89e63bfcbe036e21.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

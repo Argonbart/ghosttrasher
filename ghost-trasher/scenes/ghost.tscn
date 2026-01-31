@@ -3,25 +3,32 @@
 [ext_resource type="Script" uid="uid://br4ey2bosuep5" path="res://scripts/ghost.gd" id="1_l5lq6"]
 [ext_resource type="Texture2D" uid="uid://dkngsgrg70sxv" path="res://assets/ghost/ghost.png" id="1_t76o2"]
 [ext_resource type="Shader" uid="uid://u0uqxek0cb1" path="res://shaders/ghost_coloring_shader.gdshader" id="2_bbnym"]
+[ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="2_veat2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_veat2"]
-shader = ExtResource("2_bbnym")
-shader_parameter/flex_color = Color(1, 1, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mfnq"]
+shader = ExtResource("2_veat2")
+shader_parameter/line_color = Color(0.7698625, 0.90382373, 0, 1)
+shader_parameter/line_thickness = 12.0
+shader_parameter/glow_multiplier = 14.0000001937156
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5lq6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_veat2"]
 atlas = ExtResource("1_t76o2")
-region = Rect2(0, 0, 389, 456)
+region = Rect2(0, 0, 1411, 1908)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bbnym"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mfnq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5lq6")
+"texture": SubResource("AtlasTexture_veat2")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_veat2"]
+shader = ExtResource("2_bbnym")
+shader_parameter/flex_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbnym"]
 radius = 150.0
@@ -30,10 +37,17 @@ radius = 150.0
 script = ExtResource("1_l5lq6")
 trigger_shape = NodePath("TriggerArea/TriggerShape")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868258122]
+[node name="GhostOutline" type="AnimatedSprite2D" parent="." unique_id=1464133391]
+material = SubResource("ShaderMaterial_5mfnq")
+position = Vector2(0, -12)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_5mfnq")
+
+[node name="GhostSprite" type="AnimatedSprite2D" parent="." unique_id=868258122]
 material = SubResource("ShaderMaterial_veat2")
-scale = Vector2(0.06, 0.06)
-sprite_frames = SubResource("SpriteFrames_bbnym")
+position = Vector2(0, -12)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_5mfnq")
 
 [node name="TriggerArea" type="Area2D" parent="." unique_id=285167578]
 collision_mask = 3

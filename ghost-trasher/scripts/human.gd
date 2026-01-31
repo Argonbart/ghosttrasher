@@ -7,20 +7,21 @@ class_name Human
 @export var sprite: AnimatedSprite2D
 @export var outline_sprite: AnimatedSprite2D
 @export var ghost_slot: Node2D
+@export var interactable: Interactable
 @export_category("Parameters")
 @export var change_direction_time: float = 1.5
 @export_category("Movement Bounding")
-@export var area_min: Vector2 = Vector2(-200, -100)
-@export var area_max: Vector2 = Vector2(200, 100)
-@onready var interactable: Interactable = $Interactable
+@export var area_center: Vector2 = Vector2.ZERO
+@export var radius_x: float = 200.0   # east / west reach
+@export var radius_y: float = 120.0   # north / south reach
+@export_category("Appearances")
+@export var sprite_frames_array: Array[SpriteFrames]
+
 
 # variables
 var direction: Vector2 = Vector2.ZERO
 var timer: float = 0.0
 var speed: float = 0.0
-
-# ghost related variables
-#
 
 
 func _ready():
@@ -36,8 +37,9 @@ func _ready():
 	
 	# initialise
 	_pick_new_direction()
-	_set_random_color()
+	_set_random_appearance()
 	_set_outline_material()
+
 
 func _on_interact():
 	print("hier wurde interacted")
@@ -53,6 +55,14 @@ func _physics_process(delta):
 	# update velocity
 	linear_velocity = direction * speed
 	
+	# flip
+	if direction.x > 0.0:
+		sprite.flip_h = true
+		outline_sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+		outline_sprite.flip_h = false
+	
 	# check for boundaries
 	_keep_inside_bounds()
 
@@ -62,7 +72,10 @@ func _on_world_state_changed(new_state):
 
 
 func _pick_new_direction():
-	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+	if randf() < 0.5:
+		direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+	else:
+		direction = Vector2(0.0, 0.0)
 	timer = change_direction_time + randf_range(-0.5, 0.5)
 	speed = randf_range(10.0, 30.0)
 
@@ -76,26 +89,36 @@ func _bounce_of_body(body):
 func _keep_inside_bounds():
 	var pos: Vector2 = global_position
 	var vel: Vector2 = linear_velocity
+	var local := pos - area_center
 	
-	if pos.x < area_min.x:
-		pos.x = area_min.x
-		vel.x = abs(vel.x)
-	elif pos.x > area_max.x:
-		pos.x = area_max.x
-		vel.x = -abs(vel.x)
+	# Normalized diamond distance
+	var d = abs(local.x) / radius_x + abs(local.y) / radius_y
 	
-	if pos.y < area_min.y:
-		pos.y = area_min.y
-		vel.y = abs(vel.y)
-	elif pos.y > area_max.y:
-		pos.y = area_max.y
-		vel.y = -abs(vel.y)
+	if d > 1.0:
+		
+		# Clamp position onto diamond edge
+		local /= d
+		pos = area_center + local
+		
+		# Boundary normal for stretched diamond
+		var normal := Vector2(sign(local.x) / radius_x, sign(local.y) / radius_y).normalized()
+		
+		# Reflect velocity
+		vel = vel - 2.0 * vel.dot(normal) * normal
 	
 	global_position = pos
 	linear_velocity = vel
 
 
-func _set_random_color():
+func _set_random_appearance():
+	
+	# set random sprite frames
+	var sprite_frames: SpriteFrames = sprite_frames_array[randi_range(0,len(sprite_frames_array) - 1)]
+	sprite.sprite_frames = sprite_frames
+	outline_sprite.sprite_frames = sprite_frames
+	sprite.play("default")
+	
+	# set random color
 	var mat = sprite.material.duplicate()
 	mat.set_shader_parameter("new_color", Color(randf(), randf(), randf()))
 	sprite.material = mat

@@ -13,7 +13,6 @@ config_version=5
 config/name="GhostTrasher"
 run/main_scene="uid://ryh443nptj7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://assets/others/icon.svg"
 
 [autoload]
 
@@ -79,3 +78,4 @@ interact={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true

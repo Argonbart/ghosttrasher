@@ -10,5 +10,5 @@ var current_state: WORLD_STATE = WORLD_STATE.HUMAN_WORLD
 
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_Q and event.pressed and not event.echo:
-		current_state = (current_state + 1) % WORLD_STATE.size()
+		current_state = (current_state + 1) % WORLD_STATE.size() as WORLD_STATE
 		world_state_changed.emit(current_state)

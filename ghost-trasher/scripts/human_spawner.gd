@@ -3,7 +3,7 @@ extends Node2D
 
 const HUMAN = preload("uid://bnhciy5dl5n0s")
 
-@export_range(0.0, 100.0, 1.0) var human_count: float = 10.0
+@export_range(0.0, 300.0, 1.0) var human_count: float = 150.0
 
 
 func _ready():

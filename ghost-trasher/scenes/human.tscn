@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://bnhciy5dl5n0s"]
 
 [ext_resource type="Script" uid="uid://csl6wfwgnuy8p" path="res://scripts/human.gd" id="1_4otcn"]
-[ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/new_outline.gdshader" id="2_denma"]
+[ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="2_denma"]
 [ext_resource type="Shader" uid="uid://dc3rtsrokjvcc" path="res://shaders/human_coloring_shader.gdshader" id="2_mayv3"]
-[ext_resource type="Texture2D" uid="uid://dn4ginhopffb" path="res://assets/human/human_1_dance.png" id="3_mayv3"]
+[ext_resource type="SpriteFrames" uid="uid://b2uxbd6yhnbda" path="res://assets/human/sprite_frames/human_1_frames.tres" id="2_u0vvy"]
+[ext_resource type="Texture2D" uid="uid://dn4ginhopffb" path="res://assets/human/sprite_sheets/human_1_dance.png" id="3_mayv3"]
+[ext_resource type="SpriteFrames" uid="uid://hyh64muo5v1f" path="res://assets/human/sprite_frames/human_2_frames.tres" id="3_oxdja"]
 [ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://scenes/interactable.tscn" id="5_denma"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mayv3"]
 shader = ExtResource("2_denma")
 shader_parameter/line_color = Color(1, 0, 0, 1)
 shader_parameter/line_thickness = 20.0
+shader_parameter/glow_multiplier = 10.0000001341108
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_denma"]
 atlas = ExtResource("3_mayv3")
@@ -60,7 +63,8 @@ height = 26.0
 radius = 14.0
 height = 34.0
 
-[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite", "outline_sprite", "ghost_slot")]
+[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite", "outline_sprite", "ghost_slot", "interactable")]
+collision_mask = 257
 gravity_scale = 0.0
 lock_rotation = true
 custom_integrator = true
@@ -70,6 +74,11 @@ script = ExtResource("1_4otcn")
 sprite = NodePath("HumanSprite")
 outline_sprite = NodePath("HumanOutline")
 ghost_slot = NodePath("GhostSlot")
+interactable = NodePath("Interactable")
+area_center = Vector2(0, -30)
+radius_x = 320.0
+radius_y = 200.0
+sprite_frames_array = Array[SpriteFrames]([ExtResource("2_u0vvy"), ExtResource("3_oxdja")])
 
 [node name="HumanOutline" type="AnimatedSprite2D" parent="." unique_id=392676022]
 visible = false

@@ -16,7 +16,7 @@ func _ready():
 		_change_human()
 
 
-func _process(delta):
+func _process(_delta):
 	if current_state == 1 and player_in_range:
 		_change_human()
 

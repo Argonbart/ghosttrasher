@@ -5,7 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="3_83cg8"]
 [ext_resource type="PackedScene" uid="uid://v0up22nlk3ty" path="res://scenes/ghost.tscn" id="4_sacs3"]
 
+[sub_resource type="Environment" id="Environment_sacs3"]
+background_mode = 3
+background_energy_multiplier = 9.66
+glow_enabled = true
+glow_hdr_threshold = 2.0
+glow_hdr_luminance_cap = 256.0
+
 [node name="AlexPlayground" type="Node2D" unique_id=662008568]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1879982719]
+environment = SubResource("Environment_sacs3")
 
 [node name="Room" parent="." unique_id=52600169 instance=ExtResource("1_j8e66")]
 
@@ -18,7 +28,6 @@ position = Vector2(-133, 0)
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true
 script = ExtResource("2_83cg8")
-human_count = 35.0
 
 [node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans") instance=ExtResource("4_sacs3")]
 visible = false

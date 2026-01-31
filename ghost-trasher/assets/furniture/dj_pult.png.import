@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo42ct5kucmwg"
-path="res://.godot/imported/oval.png-d4b602d3078269e469673f8eb7766e1c.ctex"
+uid="uid://ckck75otcxl8p"
+path="res://.godot/imported/dj_pult.png-d0a4b199b119f39664122aa20b94548c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/human/oval.png"
-dest_files=["res://.godot/imported/oval.png-d4b602d3078269e469673f8eb7766e1c.ctex"]
+source_file="res://assets/furniture/dj_pult.png"
+dest_files=["res://.godot/imported/dj_pult.png-d0a4b199b119f39664122aa20b94548c.ctex"]
 
 [params]
 

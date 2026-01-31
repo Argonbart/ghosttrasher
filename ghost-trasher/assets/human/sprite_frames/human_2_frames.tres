@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://hyh64muo5v1f"]
+
+[ext_resource type="Texture2D" uid="uid://dwkyob2xdivwx" path="res://assets/human/sprite_sheets/human_2_dance.png" id="1_0ncgd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74htc"]
+atlas = ExtResource("1_0ncgd")
+region = Rect2(0, 0, 1320, 1297)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_labxj"]
+atlas = ExtResource("1_0ncgd")
+region = Rect2(1320, 0, 1320, 1297)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74htc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_labxj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
