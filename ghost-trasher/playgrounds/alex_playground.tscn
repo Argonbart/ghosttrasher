@@ -12,12 +12,13 @@
 [node name="YSorted" type="Node2D" parent="." unique_id=2106642549]
 y_sort_enabled = true
 
+[node name="Player" parent="YSorted" unique_id=125667676 instance=ExtResource("3_83cg8")]
+position = Vector2(-133, 0)
+
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true
 script = ExtResource("2_83cg8")
 human_count = 35.0
-
-[node name="Player" parent="YSorted" unique_id=125667676 instance=ExtResource("3_83cg8")]
 
 [node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans") instance=ExtResource("4_sacs3")]
 visible = false

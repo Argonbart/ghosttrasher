@@ -23,10 +23,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Ghost" type="Node2D" unique_id=1786284202]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbnym"]
+radius = 150.0
+
+[node name="Ghost" type="Node2D" unique_id=1786284202 node_paths=PackedStringArray("trigger_shape")]
 script = ExtResource("1_l5lq6")
+trigger_shape = NodePath("TriggerArea/TriggerShape")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868258122]
 material = SubResource("ShaderMaterial_veat2")
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_bbnym")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=285167578]
+collision_mask = 3
+
+[node name="TriggerShape" type="CollisionShape2D" parent="TriggerArea" unique_id=1134969379]
+shape = SubResource("CircleShape2D_bbnym")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

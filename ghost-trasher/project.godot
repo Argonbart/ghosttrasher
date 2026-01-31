@@ -19,6 +19,7 @@ config/icon="res://assets/others/icon.svg"
 
 WorldManager="*uid://cqdo56bqirvlf"
 InteractionManager="*uid://c5hfvf8wfnrsd"
+Globals="*uid://qccawekvqhdi"
 
 [debug]
 
