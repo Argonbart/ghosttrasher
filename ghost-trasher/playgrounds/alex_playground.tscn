@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ryh443nptj7u"]
 
-[ext_resource type="PackedScene" uid="uid://dij0pon1ksbo0" path="res://scenes/room.tscn" id="1_j8e66"]
+[ext_resource type="PackedScene" path="res://scenes/room.tscn" id="1_j8e66"]
 [ext_resource type="Script" uid="uid://ba8oy8afq6xi" path="res://scripts/human_spawner.gd" id="2_83cg8"]
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="3_83cg8"]
 [ext_resource type="PackedScene" uid="uid://v0up22nlk3ty" path="res://scenes/ghost.tscn" id="4_sacs3"]
+[ext_resource type="AudioStream" uid="uid://ckewt0befva1s" path="res://assets/music/GGJ26_DiaDeLosMuertos.mp3" id="5_ai7a8"]
 
 [sub_resource type="Environment" id="Environment_sacs3"]
 background_mode = 3
@@ -133,3 +134,8 @@ visible = false
 z_index = 1
 human_spawners = [NodePath("../HumanSpawner"), NodePath("../HumanSpawner2"), NodePath("../HumanSpawner3"), NodePath("../HumanSpawner4"), NodePath("../HumanSpawner5"), NodePath("../HumanSpawner6"), NodePath("../HumanSpawner7"), NodePath("../HumanSpawner8"), NodePath("../HumanSpawner9"), NodePath("../HumanSpawner10"), NodePath("../HumanSpawner11"), NodePath("../HumanSpawner12"), NodePath("../HumanSpawner13"), NodePath("../HumanSpawner14"), NodePath("../HumanSpawner15"), NodePath("../HumanSpawner16"), NodePath("../HumanSpawner17")]
 room = NodePath("../../Room")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=887603334]
+stream = ExtResource("5_ai7a8")
+volume_db = -20.0
+autoplay = true
