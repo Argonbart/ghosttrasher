@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="3_83cg8"]
 [ext_resource type="PackedScene" uid="uid://v0up22nlk3ty" path="res://scenes/ghost.tscn" id="4_sacs3"]
 [ext_resource type="AudioStream" uid="uid://ckewt0befva1s" path="res://assets/music/GGJ26_DiaDeLosMuertos.mp3" id="5_ai7a8"]
+[ext_resource type="Script" uid="uid://jkuf0ltef4wl" path="res://scripts/music.gd" id="6_kgntn"]
 
 [sub_resource type="Environment" id="Environment_sacs3"]
 background_mode = 3
@@ -139,3 +140,4 @@ room = NodePath("../../Room")
 stream = ExtResource("5_ai7a8")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("6_kgntn")

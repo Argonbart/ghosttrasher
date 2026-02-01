@@ -15,6 +15,7 @@ func _on_interact():
 	else:
 		timer.start()
 		effects.toggle_effects()
+		Globals.music.pitch_scale = 1.5
 		for human in humans:
 			human._on_music_state_changed()
 
@@ -35,3 +36,4 @@ func _on_music_area_body_exited(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	timer.wait_time = cooldown
 	effects.toggle_effects()
+	Globals.music.pitch_scale = 1.0
