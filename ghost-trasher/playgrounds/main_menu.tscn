@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d27eb8n0c5fnv" path="res://assets/menu/Title_Startscreen.png" id="2_4jol6"]
 [ext_resource type="VideoStream" uid="uid://h676ded1taii" path="res://assets/menu/trashpanda.ogv" id="3_2kywn"]
 [ext_resource type="StyleBox" uid="uid://b21xede3ybhrq" path="res://ui/button_style_normal.tres" id="4_bq2nd"]
+[ext_resource type="Texture2D" uid="uid://umbqx5mksatg" path="res://assets/menu/trashpandyhype.png" id="4_o1vpj"]
 [ext_resource type="StyleBox" uid="uid://chd2c57ek6h40" path="res://ui/button_style_pressed.tres" id="5_4jol6"]
 [ext_resource type="StyleBox" uid="uid://ds67glolo46gx" path="res://ui/button_style_hovered.tres" id="6_o1vpj"]
 [ext_resource type="Texture2D" uid="uid://bctp48df4uu2c" path="res://assets/menu/Titel.png" id="7_o1vpj"]
@@ -33,13 +34,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -161.0
-offset_right = 319.35986
-offset_bottom = 135.0
+offset_left = -269.99994
+offset_top = -304.0
+offset_right = 270.0
+offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_o1vpj")
+expand_mode = 1
+
+[node name="TrashPanda" type="TextureRect" parent="." unique_id=293043095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 8.64)
+texture = ExtResource("4_o1vpj")
 expand_mode = 1
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2098789370]
