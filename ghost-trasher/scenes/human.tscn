@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b2uxbd6yhnbda" path="res://assets/human/sprite_frames/human_1_frames.tres" id="2_u0vvy"]
 [ext_resource type="Texture2D" uid="uid://dn4ginhopffb" path="res://assets/human/sprite_sheets/human_1_dance.png" id="3_mayv3"]
 [ext_resource type="SpriteFrames" uid="uid://hyh64muo5v1f" path="res://assets/human/sprite_frames/human_2_frames.tres" id="3_oxdja"]
+[ext_resource type="Texture2D" uid="uid://brsws20wfigf6" path="res://assets/others/cross.png" id="4_oxdja"]
 [ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://scenes/interactable.tscn" id="5_denma"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mayv3"]
@@ -65,7 +66,7 @@ height = 26.0
 radius = 14.0
 height = 34.0
 
-[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("sprite", "outline_sprite", "ghost_slot", "interactable")]
+[node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("talisman_sprite", "outline_sprite", "sprite", "ghost_slot", "interactable")]
 collision_mask = 256
 gravity_scale = 0.0
 lock_rotation = true
@@ -73,8 +74,9 @@ custom_integrator = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_4otcn")
-sprite = NodePath("HumanSprite")
+talisman_sprite = NodePath("TalismanSprite")
 outline_sprite = NodePath("HumanOutline")
+sprite = NodePath("HumanSprite")
 ghost_slot = NodePath("GhostSlot")
 interactable = NodePath("Interactable")
 change_direction_time_vary = 2.0
@@ -83,6 +85,12 @@ area_center = Vector2(0, -30)
 radius_x = 320.0
 radius_y = 200.0
 sprite_frames_array = Array[SpriteFrames]([ExtResource("2_u0vvy"), ExtResource("3_oxdja")])
+
+[node name="TalismanSprite" type="Sprite2D" parent="." unique_id=1352490730]
+visible = false
+position = Vector2(4.835, -24.37)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("4_oxdja")
 
 [node name="HumanOutline" type="AnimatedSprite2D" parent="." unique_id=392676022]
 visible = false
@@ -104,9 +112,8 @@ shape = SubResource("CapsuleShape2D_s2jxt")
 
 [node name="GhostSlot" type="Node2D" parent="." unique_id=1505579496]
 
-[node name="Interactable" parent="." unique_id=1858754028 node_paths=PackedStringArray("outline", "parent_object") instance=ExtResource("5_denma")]
+[node name="Interactable" parent="." unique_id=1858754028 node_paths=PackedStringArray("outline") instance=ExtResource("5_denma")]
 outline = NodePath("../HumanOutline")
-parent_object = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1944714637]
 shape = SubResource("CapsuleShape2D_c7jhf")
