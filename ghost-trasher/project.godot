@@ -94,3 +94,4 @@ nail={
 
 rendering_device/driver.windows="d3d12"
 viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(0.04440061, 0.046441898, 0.10487317, 1)

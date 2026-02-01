@@ -67,7 +67,7 @@ radius = 14.0
 height = 34.0
 
 [node name="Human" type="RigidBody2D" unique_id=1724877400 node_paths=PackedStringArray("talisman_sprite", "outline_sprite", "sprite", "ghost_slot", "interactable")]
-collision_mask = 256
+collision_mask = 8448
 gravity_scale = 0.0
 lock_rotation = true
 custom_integrator = true

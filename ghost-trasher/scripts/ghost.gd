@@ -2,11 +2,12 @@ extends Node2D
 class_name Ghost
 
 
-@export var humans: Node2D
+@export var human_spawners: Array[Node2D]
 @export var sprite: AnimatedSprite2D
 @export var sprite_outline: AnimatedSprite2D
 @export var trigger_shape: CollisionShape2D
 @export var room: Node2D
+@export var max_teleport_range: float = 1000.0
 
 var parent_human: Human
 var current_state: int = 0
@@ -34,7 +35,7 @@ func _process(_delta):
 		is_inside_prison = true
 	
 	# flee if possible
-	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman and not is_inside_prison:
+	if current_state == 1 and player_in_range and parent_human and !parent_human.marked_by_talisman and not is_inside_prison:
 		parent_human.possessed_by_ghost = false
 		_change_human()
 
@@ -48,9 +49,11 @@ func _on_world_state_changed(new_state):
 
 func _change_human():
 	var far_humans = []
-	for human in humans.get_children():
-		if (human.global_position - Globals.player.global_position).length() > trigger_shape.shape.radius:
-			far_humans.append(human)
+	for humans in human_spawners:
+		for human in humans.get_children():
+			var distance_from_player = (human.global_position - Globals.player.global_position).length()
+			if distance_from_player > trigger_shape.shape.radius and distance_from_player < max_teleport_range:
+				far_humans.append(human)
 	if far_humans.is_empty():
 		return
 	var next_human = far_humans[randi_range(0, len(far_humans) - 1)]

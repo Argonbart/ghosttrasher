@@ -28,11 +28,108 @@ room = NodePath("../../Room")
 
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true
+position = Vector2(-54, -157)
 script = ExtResource("2_83cg8")
-human_count = 200.0
+human_count = 50.0
 
-[node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans", "room") instance=ExtResource("4_sacs3")]
+[node name="HumanSpawner2" type="Node2D" parent="YSorted" unique_id=1460143320]
+y_sort_enabled = true
+position = Vector2(146, -89)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner3" type="Node2D" parent="YSorted" unique_id=983716915]
+y_sort_enabled = true
+position = Vector2(237, 38)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner4" type="Node2D" parent="YSorted" unique_id=935129946]
+y_sort_enabled = true
+position = Vector2(89, 125)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner5" type="Node2D" parent="YSorted" unique_id=1466445042]
+y_sort_enabled = true
+position = Vector2(-66, 33)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner6" type="Node2D" parent="YSorted" unique_id=1672626538]
+y_sort_enabled = true
+position = Vector2(-205, -50)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner7" type="Node2D" parent="YSorted" unique_id=1231949187]
+y_sort_enabled = true
+position = Vector2(-319, 197)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner8" type="Node2D" parent="YSorted" unique_id=1160944621]
+y_sort_enabled = true
+position = Vector2(-598, 227)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner9" type="Node2D" parent="YSorted" unique_id=1002623965]
+y_sort_enabled = true
+position = Vector2(-902, -43)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner10" type="Node2D" parent="YSorted" unique_id=5117452]
+y_sort_enabled = true
+position = Vector2(-654, -187)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner11" type="Node2D" parent="YSorted" unique_id=600497081]
+y_sort_enabled = true
+position = Vector2(296, -578)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner12" type="Node2D" parent="YSorted" unique_id=1527363878]
+y_sort_enabled = true
+position = Vector2(596, -397)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner13" type="Node2D" parent="YSorted" unique_id=1720480643]
+y_sort_enabled = true
+position = Vector2(894, -224)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner14" type="Node2D" parent="YSorted" unique_id=332455931]
+y_sort_enabled = true
+position = Vector2(218, 507)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner15" type="Node2D" parent="YSorted" unique_id=869252398]
+y_sort_enabled = true
+position = Vector2(-113, 507)
+script = ExtResource("2_83cg8")
+human_count = 50.0
+
+[node name="HumanSpawner16" type="Node2D" parent="YSorted" unique_id=1638262133]
+y_sort_enabled = true
+position = Vector2(-308, -379)
+script = ExtResource("2_83cg8")
+human_count = 20.0
+
+[node name="HumanSpawner17" type="Node2D" parent="YSorted" unique_id=1945114226]
+y_sort_enabled = true
+position = Vector2(717, 212)
+script = ExtResource("2_83cg8")
+human_count = 20.0
+
+[node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("human_spawners", "room") instance=ExtResource("4_sacs3")]
 visible = false
 z_index = 1
-humans = NodePath("../HumanSpawner")
+human_spawners = [NodePath("../HumanSpawner"), NodePath("../HumanSpawner2"), NodePath("../HumanSpawner3"), NodePath("../HumanSpawner4"), NodePath("../HumanSpawner5"), NodePath("../HumanSpawner6"), NodePath("../HumanSpawner7"), NodePath("../HumanSpawner8"), NodePath("../HumanSpawner9"), NodePath("../HumanSpawner10"), NodePath("../HumanSpawner11"), NodePath("../HumanSpawner12"), NodePath("../HumanSpawner13"), NodePath("../HumanSpawner14"), NodePath("../HumanSpawner15"), NodePath("../HumanSpawner16"), NodePath("../HumanSpawner17")]
 room = NodePath("../../Room")

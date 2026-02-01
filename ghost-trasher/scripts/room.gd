@@ -20,9 +20,9 @@ func _on_world_state_changed(new_state: WorldManager.WORLD_STATE):
 	RUNE_CELL_MATERIAL.set_shader_parameter("world_state", new_state)
 	block_tiles.set_cell(last_cell_pos, 4, Vector2i(0,0))
 	if new_state == WorldManager.WORLD_STATE.HUMAN_WORLD:
-		block_tiles.tile_set.set_physics_layer_collision_layer(0, 4096)
+		block_tiles.tile_set.set_physics_layer_collision_layer(0, 4096 | 8192)
 	if new_state == WorldManager.WORLD_STATE.GHOST_WORLD:
-		block_tiles.tile_set.set_physics_layer_collision_layer(0, 0)
+		block_tiles.tile_set.set_physics_layer_collision_layer(0, 8192)
 
 
 func _process(_delta):
