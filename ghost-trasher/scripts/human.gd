@@ -21,6 +21,7 @@ class_name Human
 @export_category("Appearances")
 @export var sprite_frames_array: Array[SpriteFrames]
 @export var music_cooldown: float = 5.0
+@export var attack_time: float = 2.0
 
 
 # variables
@@ -33,6 +34,8 @@ var hit_by_music: bool = false
 var music_origin: Node2D
 @onready var music_timer: Timer = $MusicTimer
 var music_playing: bool = false
+@onready var attack_timer: Timer = $AttackTimer
+var block_movement: bool = false
 
 
 func _ready():
@@ -46,6 +49,7 @@ func _ready():
 	
 	# initialise
 	_set_music_timer_cooldown()
+	_set_attack_time()
 	_pick_new_direction()
 	_set_random_appearance()
 	_set_outline_material()
@@ -67,40 +71,45 @@ func _on_interact():
 
 
 func _on_kill():
+	block_movement = true
+	Globals.player.block_all_input = true
+	Globals.player.attack_anim.play()
+	Globals.player.attack_anim.show()
+	attack_timer.start()
 	if possessed_by_ghost:
-		get_tree().change_scene_to_file("res://playgrounds/win_screen.tscn")
+		Globals.player.player_won = true
 	else:
-		get_tree().change_scene_to_file("res://playgrounds/defeat_screen.tscn")
+		Globals.player.player_won = false
 
 
 func _physics_process(delta):
-	
-	# update timer
-	timer -= delta
-	if timer <= 0.0:
-		if !music_playing:
-			_pick_new_direction()
+	if !block_movement:
+		# update timer
+		timer -= delta
+		if timer <= 0.0:
+			if !music_playing:
+				_pick_new_direction()
+			else:
+				_walk_to_music_origin()
+		
+		
+		# update velocity
+		linear_velocity = direction * speed
+		
+		# flip
+		if direction.x > 0.0:
+			sprite.flip_h = true
+			outline_sprite.flip_h = true
 		else:
-			_walk_to_music_origin()
-	
-	
-	# update velocity
-	linear_velocity = direction * speed
-	
-	# flip
-	if direction.x > 0.0:
-		sprite.flip_h = true
-		outline_sprite.flip_h = true
-	else:
-		sprite.flip_h = false
-		outline_sprite.flip_h = false
-	
-	# check for boundaries
-	#_keep_inside_bounds()
-	
-	# check for prison
-	if possessed_by_ghost and Globals.ghost.is_inside_prison and Globals.ghost.room._is_inside_prison(global_position):
-		linear_velocity *= -1
+			sprite.flip_h = false
+			outline_sprite.flip_h = false
+		
+		# check for boundaries
+		#_keep_inside_bounds()
+		
+		# check for prison
+		if possessed_by_ghost and Globals.ghost.is_inside_prison and Globals.ghost.room._is_inside_prison(global_position):
+			linear_velocity *= -1
 
 
 func _on_world_state_changed(new_state):
@@ -115,6 +124,10 @@ func _on_music_state_changed():
 
 func _set_music_timer_cooldown():
 	music_timer.wait_time = music_cooldown
+
+
+func _set_attack_time():
+	attack_timer.wait_time = attack_time
 
 
 func _pick_new_direction():
@@ -186,3 +199,10 @@ func _on_music_timer_timeout() -> void:
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
 	speed = randf_range(min_speed, max_speed)
+
+
+func _on_attack_timer_timeout() -> void:
+	if Globals.player.player_won:
+		get_tree().change_scene_to_file("res://playgrounds/win_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://playgrounds/defeat_screen.tscn")
