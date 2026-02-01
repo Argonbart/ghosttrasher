@@ -122,4 +122,8 @@ shape = SubResource("CapsuleShape2D_c7jhf")
 wait_time = 5.0
 one_shot = true
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=1905328861]
+one_shot = true
+
 [connection signal="timeout" from="MusicTimer" to="." method="_on_music_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

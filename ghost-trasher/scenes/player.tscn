@@ -441,8 +441,9 @@ shape = SubResource("CapsuleShape2D_ur7pv")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
 zoom = Vector2(2, 2)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1019140642]
+[node name="AttackAnimSprite" type="AnimatedSprite2D" parent="." unique_id=1019140642]
 visible = false
-scale = Vector2(0.04, 0.04)
+z_index = 20
+scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-frame_progress = 0.8174748
+frame_progress = 0.82760453
