@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://6wm55p6morvo"]
 
 [ext_resource type="Script" uid="uid://co1qkh3uxgxgh" path="res://scripts/defeat_screen.gd" id="1_sox2q"]
-[ext_resource type="Texture2D" uid="uid://dkhthb71jr7oq" path="res://assets/menu/trashpanda3.png" id="2_1ycok"]
+[ext_resource type="Texture2D" uid="uid://dqbimkqlf7dyq" path="res://assets/menu/losetrashpanda.png" id="2_sox2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ycok"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v73d4"]
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nm2f"]
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
 
 [node name="DefeatScreen" type="Control" unique_id=802785615]
 layout_mode = 3
@@ -12,44 +21,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sox2q")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=567965786]
+[node name="Panel" type="Panel" parent="." unique_id=1267034006]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_1ycok")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ycok")
 
 [node name="Label" type="Label" parent="." unique_id=671841714]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 54.0
-offset_right = 670.0
-offset_bottom = 109.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 65.0
+offset_top = 356.0
+offset_right = 583.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Back to the trash with you!"
 
 [node name="PlayAgain" type="Button" parent="." unique_id=2107940084]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 278.0
-offset_right = 484.0
-offset_bottom = 363.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 219.0
+offset_top = 502.0
+offset_right = 419.0
+offset_bottom = 587.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_v73d4")
 text = "Play Again"
 
 [node name="ReturnToMenu" type="Button" parent="." unique_id=46408302]
 layout_mode = 0
-offset_left = 231.0
-offset_top = 391.0
-offset_right = 547.0
-offset_bottom = 476.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 167.0
+offset_top = 622.0
+offset_right = 483.0
+offset_bottom = 707.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4nm2f")
 text = "Return to Main Menu"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1325117499]
+layout_mode = 1
+offset_left = 550.0
+offset_top = 182.0
+offset_right = 3550.0
+offset_bottom = 3182.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_sox2q")
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
