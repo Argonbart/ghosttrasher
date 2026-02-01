@@ -7,8 +7,8 @@
 [ext_resource type="Material" uid="uid://cpmpcwq02bwc3" path="res://rune_cell_material.tres" id="4_jn645"]
 [ext_resource type="Shader" uid="uid://dnwtcgclbgdv0" path="res://shaders/gray_coloring_shader.gdshader" id="5_qvc4m"]
 [ext_resource type="Material" uid="uid://ds08ikw5l30av" path="res://invis_cell_material.tres" id="5_ybpoa"]
-[ext_resource type="PackedScene" path="res://scenes/sound_box_left.tscn" id="8_7dqbv"]
-[ext_resource type="PackedScene" path="res://scenes/sound_box_right.tscn" id="9_ybpoa"]
+[ext_resource type="PackedScene" uid="uid://diq8vdwofue4x" path="res://scenes/sound_box_left.tscn" id="8_7dqbv"]
+[ext_resource type="PackedScene" uid="uid://bp73li3n2i80f" path="res://scenes/sound_box_right.tscn" id="9_ybpoa"]
 [ext_resource type="Texture2D" uid="uid://bkg4ax61sqajx" path="res://assets/furniture/bar.png" id="10_qtoah"]
 [ext_resource type="PackedScene" path="res://scenes/game_ui.tscn" id="11_eom3m"]
 [ext_resource type="PackedScene" uid="uid://qlp64xad4xvy" path="res://scenes/led.tscn" id="12_tk5fv"]
@@ -160,14 +160,6 @@ polygon = PackedVector2Array(-89.5, -90.399994, -92, -89.3, -92, -88.3, -94, -87
 
 [node name="LED17" parent="LEDs" unique_id=68962865 instance=ExtResource("12_tk5fv")]
 
-[node name="LED18" parent="LEDs" unique_id=1597940699 instance=ExtResource("12_tk5fv")]
-
-[node name="LED19" parent="LEDs" unique_id=1813863594 instance=ExtResource("12_tk5fv")]
-
-[node name="LED20" parent="LEDs" unique_id=1301071661 instance=ExtResource("12_tk5fv")]
-
-[node name="LED21" parent="LEDs" unique_id=102111521 instance=ExtResource("12_tk5fv")]
-
 [node name="LED2" parent="LEDs" unique_id=255873334 instance=ExtResource("12_tk5fv")]
 
 [node name="LED3" parent="LEDs" unique_id=795262782 instance=ExtResource("12_tk5fv")]
@@ -179,16 +171,6 @@ polygon = PackedVector2Array(-89.5, -90.399994, -92, -89.3, -92, -88.3, -94, -87
 [node name="LED6" parent="LEDs" unique_id=1100326845 instance=ExtResource("12_tk5fv")]
 
 [node name="LED7" parent="LEDs" unique_id=615426600 instance=ExtResource("12_tk5fv")]
-
-[node name="LED8" parent="LEDs" unique_id=1058531276 instance=ExtResource("12_tk5fv")]
-position = Vector2(416, -492)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED9" parent="LEDs" unique_id=941792222 instance=ExtResource("12_tk5fv")]
-position = Vector2(416, -492)
-size_factor = 0.4
-radius = 100.0
 
 [node name="LED10" parent="LEDs" unique_id=1856058115 instance=ExtResource("12_tk5fv")]
 position = Vector2(416, -492)
@@ -215,16 +197,6 @@ position = Vector2(885, -214)
 size_factor = 0.4
 radius = 100.0
 
-[node name="LED15" parent="LEDs" unique_id=690198971 instance=ExtResource("12_tk5fv")]
-position = Vector2(885, -214)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED16" parent="LEDs" unique_id=1485092166 instance=ExtResource("12_tk5fv")]
-position = Vector2(885, -214)
-size_factor = 0.4
-radius = 100.0
-
 [node name="LED22" parent="LEDs" unique_id=737706123 instance=ExtResource("12_tk5fv")]
 position = Vector2(56, 592)
 size_factor = 0.4
@@ -245,28 +217,8 @@ position = Vector2(-75, 535)
 size_factor = 0.4
 radius = 100.0
 
-[node name="LED32" parent="LEDs" unique_id=227773550 instance=ExtResource("12_tk5fv")]
-position = Vector2(-16, 553)
-size_factor = 0.4
-radius = 100.0
-
 [node name="LED33" parent="LEDs" unique_id=1387771336 instance=ExtResource("12_tk5fv")]
 position = Vector2(136, 562)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED34" parent="LEDs" unique_id=1027668080 instance=ExtResource("12_tk5fv")]
-position = Vector2(191, 530)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED35" parent="LEDs" unique_id=1524520099 instance=ExtResource("12_tk5fv")]
-position = Vector2(266, 497)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED24" parent="LEDs" unique_id=284271019 instance=ExtResource("12_tk5fv")]
-position = Vector2(-887, -40)
 size_factor = 0.4
 radius = 100.0
 
@@ -282,11 +234,6 @@ radius = 100.0
 
 [node name="LED27" parent="LEDs" unique_id=2082042381 instance=ExtResource("12_tk5fv")]
 position = Vector2(-752, -140)
-size_factor = 0.4
-radius = 100.0
-
-[node name="LED28" parent="LEDs" unique_id=1971596903 instance=ExtResource("12_tk5fv")]
-position = Vector2(-697, -165)
 size_factor = 0.4
 radius = 100.0
 

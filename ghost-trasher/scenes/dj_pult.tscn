@@ -33,12 +33,12 @@ particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 50.0
-emission_ring_inner_radius = 15.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
 emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.0
-scale_max = 0.04
+scale_min = 0.049999997
+scale_max = 0.099999994
 color_ramp = SubResource("GradientTexture1D_vq21m")
 
 [node name="DjPult" type="StaticBody2D" unique_id=577615190 node_paths=PackedStringArray("effects")]

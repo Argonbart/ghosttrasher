@@ -18,10 +18,16 @@ var _angle := 0.0
 var _center: Vector2
 
 func _ready():
+	WorldManager.connect("world_state_changed", _on_world_state_changed)
 	sprite.scale = Vector2(size_factor, size_factor)
 	_center = position
 	_set_new_color()
 	_choose_mode()
+
+
+func _on_world_state_changed(new_state):
+	sprite.material.set_shader_parameter("world_state", new_state)
+
 
 func _process(delta):
 	_time_accum += delta

@@ -22,24 +22,63 @@ radius = 36.013885
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0dbn"]
 radius = 160.04999
 
-[sub_resource type="Gradient" id="Gradient_3y7ub"]
+[sub_resource type="Gradient" id="Gradient_diqvu"]
 colors = PackedColorArray(1, 0.11372549, 0.5294118, 1, 0.30980393, 0.85490197, 0.94509804, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4btn3"]
-gradient = SubResource("Gradient_3y7ub")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vq21m"]
+gradient = SubResource("Gradient_diqvu")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s722y"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0sh5"]
 particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 50.0
-emission_ring_inner_radius = 15.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
 emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.0
-scale_max = 0.04
-color_ramp = SubResource("GradientTexture1D_4btn3")
+scale_min = 0.049999997
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_vq21m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tm754"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_vq21m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3jt5"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_vq21m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_so0rb"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 50.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_vq21m")
 
 [node name="SoundBox" type="StaticBody2D" unique_id=1285019985 node_paths=PackedStringArray("effects")]
 collision_layer = 256
@@ -92,7 +131,7 @@ emitting = false
 amount = 10
 texture = ExtResource("6_tm754")
 lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_s722y")
+process_material = SubResource("ParticleProcessMaterial_n0sh5")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="Effects" unique_id=2067839125]
 z_index = 30
@@ -100,7 +139,7 @@ emitting = false
 amount = 10
 texture = ExtResource("7_l3jt5")
 lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_s722y")
+process_material = SubResource("ParticleProcessMaterial_tm754")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="Effects" unique_id=522357265]
 z_index = 30
@@ -108,7 +147,7 @@ emitting = false
 amount = 10
 texture = ExtResource("8_so0rb")
 lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_s722y")
+process_material = SubResource("ParticleProcessMaterial_l3jt5")
 
 [node name="GPUParticles2D4" type="GPUParticles2D" parent="Effects" unique_id=926715502]
 z_index = 30
@@ -116,7 +155,7 @@ emitting = false
 amount = 10
 texture = ExtResource("9_lfcvh")
 lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_s722y")
+process_material = SubResource("ParticleProcessMaterial_so0rb")
 
 [connection signal="body_entered" from="MusicArea" to="." method="_on_music_area_body_entered"]
 [connection signal="body_exited" from="MusicArea" to="." method="_on_music_area_body_exited"]

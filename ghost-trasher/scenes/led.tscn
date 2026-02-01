@@ -6,10 +6,13 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wuehv"]
 shader = ExtResource("1_soycm")
+shader_parameter/world_state = 0
+shader_parameter/gray_factor = 7.0
+shader_parameter/alpha_value = 0.2000000095
 shader_parameter/flex_color = Color(1, 1, 1, 1)
 shader_parameter/new_color = Color(0.80363095, 0, 0, 1)
 shader_parameter/alpha_min_value = 0.050000002375
-shader_parameter/alpha_max_value = 0.30000001425
+shader_parameter/alpha_max_value = 0.10000000475
 shader_parameter/blink_speed = 2.0000000298024
 shader_parameter/color_change_speed = 0.1
 shader_parameter/speed = 1.0
