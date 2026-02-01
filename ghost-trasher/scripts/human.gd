@@ -21,6 +21,7 @@ class_name Human
 @export_category("Appearances")
 @export var sprite_frames_array: Array[SpriteFrames]
 var marked_by_talisman: bool = false
+var possessed_by_ghost: bool = false
 
 
 # variables
@@ -56,6 +57,13 @@ func _on_interact():
 		Globals.player.remaining_talismans -= 1
 		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
 		talisman_sprite.show()
+
+
+func _on_kill():
+	if possessed_by_ghost:
+		get_tree().change_scene_to_file("res://playgrounds/win_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://playgrounds/defeat_screen.tscn")
 
 
 func _physics_process(delta):

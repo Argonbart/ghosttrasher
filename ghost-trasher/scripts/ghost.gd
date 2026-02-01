@@ -7,10 +7,10 @@ class_name Ghost
 @export var sprite_outline: AnimatedSprite2D
 @export var trigger_shape: CollisionShape2D
 @export var room: Node2D
-var parent_human:Human
 
+var parent_human:Human
 var current_state: int = 0
-var player_in_range: bool = false
+var player_in_range: bool = true
 
 
 func _ready():
@@ -27,8 +27,9 @@ func _process(_delta):
 		sprite.flip_h = get_parent().sprite.flip_h
 		sprite_outline.flip_h = get_parent().sprite.flip_h
 	
-	# teleport
+	# flee if possible
 	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman and not room._is_inside_prison(global_position):
+		parent_human.possessed_by_ghost = false
 		_change_human()
 
 
@@ -49,6 +50,7 @@ func _change_human():
 	var next_human = far_humans[randi_range(0, len(far_humans) - 1)]
 	reparent(next_human, false)
 	parent_human = next_human
+	parent_human.possessed_by_ghost = true
 	player_in_range = false
 
 

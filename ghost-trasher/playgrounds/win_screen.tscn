@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://rapdab0ixbbw"]
+
+[ext_resource type="Script" uid="uid://dm0j561nurmi0" path="res://scripts/win_screen.gd" id="1_0q706"]
+[ext_resource type="Texture2D" uid="uid://bs2insnfp6qj5" path="res://assets/menu/trashpanda2.png" id="2_xa44n"]
+
+[node name="WinScreen" type="Node2D" unique_id=1661391310]
+script = ExtResource("1_0q706")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684409794]
+position = Vector2(958.5, 543.5)
+scale = Vector2(4.6838236, 3.0138888)
+texture = ExtResource("2_xa44n")
+
+[node name="Control" type="Control" parent="." unique_id=682540027]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=1256672144]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 126.0
+offset_right = 707.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Another successful mission!"
+
+[node name="PlayAgain" type="Button" parent="Control" unique_id=1411494080]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 254.0
+offset_right = 538.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+
+[node name="ReturnToMenu" type="Button" parent="Control" unique_id=527010109]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 366.0
+offset_right = 595.0
+offset_bottom = 451.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Control/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Control/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
