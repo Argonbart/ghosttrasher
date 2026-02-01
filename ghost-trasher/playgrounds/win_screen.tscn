@@ -154,7 +154,7 @@ volume_db = 5.0
 autoplay = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1506405358]
-position = Vector2(2031, 1193)
+position = Vector2(1514, 711)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_k3ngq")
 
