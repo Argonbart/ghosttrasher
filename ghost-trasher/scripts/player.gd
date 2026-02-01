@@ -12,8 +12,9 @@ var remaining_talismans: int
 @export_category("Nodes")
 @export var anim_sprite_outline: AnimatedSprite2D
 @export var anim_sprite: AnimatedSprite2D
-@export var talismans_label: RichTextLabel
 @export var room: Node2D
+@export var camera: Camera2D
+var game_ui: Control
 
 #variables
 var last_animation: String = "idle_down"
@@ -22,11 +23,10 @@ var last_animation: String = "idle_down"
 func _ready():
 	Globals.player = self
 	remaining_talismans = max_talismans
-	talismans_label.text = "Remaining Talismans: " + str(remaining_talismans)
 
 
 func _physics_process(_delta: float) -> void:
-
+	
 	#wasd direction
 	var input_direction: Vector2 = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
@@ -62,3 +62,10 @@ func _physics_process(_delta: float) -> void:
 	#set velocity
 	velocity = Vector2(input_direction.x * speed,input_direction.y * speed)
 	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("zoom_in"):
+		camera.zoom += Vector2(0.15, 0.15)
+	
+	if event.is_action_pressed("zoom_out"):
+		camera.zoom -= Vector2(0.15, 0.15)

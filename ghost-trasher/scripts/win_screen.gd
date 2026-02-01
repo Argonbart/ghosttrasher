@@ -1,4 +1,7 @@
-extends Node2D
+extends Control
+
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 
 
 func _on_play_again_pressed() -> void:

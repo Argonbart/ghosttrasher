@@ -7,6 +7,10 @@
 [ext_resource type="Material" uid="uid://cpmpcwq02bwc3" path="res://rune_cell_material.tres" id="4_jn645"]
 [ext_resource type="Shader" uid="uid://dnwtcgclbgdv0" path="res://shaders/gray_coloring_shader.gdshader" id="5_qvc4m"]
 [ext_resource type="Material" uid="uid://ds08ikw5l30av" path="res://invis_cell_material.tres" id="5_ybpoa"]
+[ext_resource type="PackedScene" uid="uid://k5kvsjogrfra" path="res://scenes/sound_box_left.tscn" id="8_7dqbv"]
+[ext_resource type="PackedScene" uid="uid://2wrowg36vxvb" path="res://scenes/sound_box_right.tscn" id="9_ybpoa"]
+[ext_resource type="Texture2D" uid="uid://bkg4ax61sqajx" path="res://assets/furniture/bar.png" id="10_qtoah"]
+[ext_resource type="PackedScene" uid="uid://c3foxe56d3745" path="res://scenes/game_ui.tscn" id="11_eom3m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_14vil"]
 shader = ExtResource("5_qvc4m")
@@ -88,4 +92,63 @@ scale = Vector2(0.2, 0.2)
 tile_set = SubResource("TileSet_85yof")
 
 [node name="DjPult" parent="." unique_id=577615190 instance=ExtResource("4_14vil")]
-position = Vector2(78, -74)
+position = Vector2(8, -23)
+
+[node name="SoundBox" parent="." unique_id=1285019985 instance=ExtResource("8_7dqbv")]
+position = Vector2(838, -262)
+
+[node name="SoundBox2" parent="." unique_id=1616859357 instance=ExtResource("8_7dqbv")]
+position = Vector2(425, -496)
+
+[node name="SoundBox3" parent="." unique_id=1807334567 instance=ExtResource("8_7dqbv")]
+position = Vector2(245, 496)
+
+[node name="SoundBox4" parent="." unique_id=1530156677 instance=ExtResource("9_ybpoa")]
+position = Vector2(-211, 460)
+
+[node name="SoundBox5" parent="." unique_id=160254256 instance=ExtResource("9_ybpoa")]
+position = Vector2(-810, -129)
+
+[node name="Bar" type="StaticBody2D" parent="." unique_id=767206497]
+position = Vector2(-6, -19)
+collision_layer = 256
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar" unique_id=493257555]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_qtoah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bar" unique_id=930782475]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(125, -30.199997, -41, -124.399994, -41, -121.100006, -79.5, -98, -82, -98, -82, -66.8, -84.8, -64, -87.399994, -64, -86, -55.699997, -86, -49, -82, -46, -82, 24.5, -110.5, 8, -115.600006, 8, -154.5, 32, -157, 32, -157, 61.799988, -163.6, 66, -166.1, 66, -169.1, 71, -171.2, 71, -170, 84.20001, -170, 87.70001, -163, 97, -161.4, 97, -159, 104.399994, -165.9, 113, -168, 113, -168, 127.79999, -157.8, 138, -155.2, 138, -156, 146.9, -156, 149, -163.7, 155, -166, 155, -166, 168.1, -154, 175.1, -154, 177.20001, -134.8, 175, -131.1, 175, -124.100006, 167, -121.600006, 167, -123, 158.70001, -123, 156.4, -118.899994, 161, -114.100006, 161, -109.399994, 168.5, -110, 171.79999, -110, 174.1, -118.7, 182, -121, 182, -121, 190.79999, -116, 195.79999, -116, 197.4, -108, 200.4, -108, 202.20001, -88.8, 200, -85.100006, 200, -78.100006, 192, -75.399994, 192, -77.5, 184.20001, -75.399994, 185, -70.899994, 185, -61.300003, 195.6, -62, 201.9, -62, 204.1, -70.7, 212, -73.399994, 212, -72, 220.29999, -72, 223, -65, 228, -65, 229.4, -58.399994, 232, -42.300003, 232, -28, 221, -28, 216.4, -17.199997, 219, -16.199997, 219, -17, 227.9, -17, 230, -28, 239.1, -28, 246.79999, -23, 251.79999, -23, 253.4, -16.100006, 256, 5.600006, 256, 8.600006, 254, 11.100006, 254, 15.100006, 248, 17, 248, 17, 239.20001, 14.299988, 236.5, 17.899994, 237, 21, 240.70001, 21, 242.4, 28.700012, 245, 44.100006, 245, 53, 230.6, 53, 228.1, 80, 212.1, 80, 177.4, 109.5, 195, 114.600006, 195, 122.399994, 189.29999, 139.79999, 193, 144.79999, 193, 148.79999, 189, 151, 189, 151, 185, 166.20001, 185, 174.20001, 170, 176.4, 170, 175, 161.70001, 175, 152.1, 166, 144.1, 166, 142, 157, 142, 157, -9.100006, 125, -29.199997)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bar" unique_id=1889478177]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-89.5, -90.399994, -92, -89.3, -92, -88.3, -94, -87.2, -94, -83, -85.7, -83, -84.600006, -85.5)
+
+[node name="Bar2" type="StaticBody2D" parent="." unique_id=1352106587]
+position = Vector2(1273, -586)
+collision_layer = 256
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar2" unique_id=15170501]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_qtoah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bar2" unique_id=767731246]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(125, -30.199997, -41, -124.399994, -41, -121.100006, -79.5, -98, -82, -98, -82, -66.8, -84.8, -64, -87.399994, -64, -86, -55.699997, -86, -49, -82, -46, -82, 24.5, -110.5, 8, -115.600006, 8, -154.5, 32, -157, 32, -157, 61.799988, -163.6, 66, -166.1, 66, -169.1, 71, -171.2, 71, -170, 84.20001, -170, 87.70001, -163, 97, -161.4, 97, -159, 104.399994, -165.9, 113, -168, 113, -168, 127.79999, -157.8, 138, -155.2, 138, -156, 146.9, -156, 149, -163.7, 155, -166, 155, -166, 168.1, -154, 175.1, -154, 177.20001, -134.8, 175, -131.1, 175, -124.100006, 167, -121.600006, 167, -123, 158.70001, -123, 156.4, -118.899994, 161, -114.100006, 161, -109.399994, 168.5, -110, 171.79999, -110, 174.1, -118.7, 182, -121, 182, -121, 190.79999, -116, 195.79999, -116, 197.4, -108, 200.4, -108, 202.20001, -88.8, 200, -85.100006, 200, -78.100006, 192, -75.399994, 192, -77.5, 184.20001, -75.399994, 185, -70.899994, 185, -61.300003, 195.6, -62, 201.9, -62, 204.1, -70.7, 212, -73.399994, 212, -72, 220.29999, -72, 223, -65, 228, -65, 229.4, -58.399994, 232, -42.300003, 232, -28, 221, -28, 216.4, -17.199997, 219, -16.199997, 219, -17, 227.9, -17, 230, -28, 239.1, -28, 246.79999, -23, 251.79999, -23, 253.4, -16.100006, 256, 5.600006, 256, 8.600006, 254, 11.100006, 254, 15.100006, 248, 17, 248, 17, 239.20001, 14.299988, 236.5, 17.899994, 237, 21, 240.70001, 21, 242.4, 28.700012, 245, 44.100006, 245, 53, 230.6, 53, 228.1, 80, 212.1, 80, 177.4, 109.5, 195, 114.600006, 195, 122.399994, 189.29999, 139.79999, 193, 144.79999, 193, 148.79999, 189, 151, 189, 151, 185, 166.20001, 185, 174.20001, 170, 176.4, 170, 175, 161.70001, 175, 152.1, 166, 144.1, 166, 142, 157, 142, 157, -9.100006, 125, -29.199997)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bar2" unique_id=1107478176]
+position = Vector2(-577, 145)
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-89.5, -90.399994, -92, -89.3, -92, -88.3, -94, -87.2, -94, -83, -85.7, -83, -84.600006, -85.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108783931]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=730375824 instance=ExtResource("11_eom3m")]
