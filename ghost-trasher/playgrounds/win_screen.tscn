@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://rapdab0ixbbw"]
+[gd_scene format=3 uid="uid://bxf6tkvksfql6"]
 
 [ext_resource type="Script" uid="uid://dm0j561nurmi0" path="res://scripts/win_screen.gd" id="1_0q706"]
 [ext_resource type="Texture2D" uid="uid://w20dbhyaiqyh" path="res://assets/menu/wintrashpanda.png" id="3_6b3g2"]
@@ -32,7 +32,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 5.5
 }]
 
 [sub_resource type="Animation" id="Animation_totw6"]
@@ -133,7 +133,7 @@ text = "Return to Main Menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1686844875]
 stream = ExtResource("3_xa44n")
-volume_db = -10.0
+volume_db = 5.0
 autoplay = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1506405358]

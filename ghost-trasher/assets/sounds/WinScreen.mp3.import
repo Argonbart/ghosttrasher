@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/WinScreen.mp3-cea8a9e78d5b498818aeaf89507c3ba
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

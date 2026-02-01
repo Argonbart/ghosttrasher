@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qlp64xad4xvy"]
+
+[ext_resource type="Texture2D" uid="uid://dpe6h7riomylh" path="res://assets/others/white_circle.png" id="1_126cy"]
+[ext_resource type="Shader" uid="uid://io6a63hxntnc" path="res://shaders/led.gdshader" id="1_soycm"]
+[ext_resource type="Script" uid="uid://wfcjvty0ek1p" path="res://scripts/led.gd" id="1_wuehv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuehv"]
+shader = ExtResource("1_soycm")
+shader_parameter/flex_color = Color(1, 1, 1, 1)
+shader_parameter/new_color = Color(0.80363095, 0, 0, 1)
+shader_parameter/alpha_min_value = 0.050000002375
+shader_parameter/alpha_max_value = 0.30000001425
+shader_parameter/blink_speed = 2.0000000298024
+shader_parameter/color_change_speed = 0.1
+shader_parameter/speed = 1.0
+
+[node name="LED" type="Node2D" unique_id=1768168331 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_wuehv")
+sprite = NodePath("Sprite2D")
+radius = 300.0
+speed = 200.0
+change_interval = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=68747958]
+material = SubResource("ShaderMaterial_wuehv")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_126cy")
