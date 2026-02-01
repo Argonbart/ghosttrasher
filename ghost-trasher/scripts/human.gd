@@ -86,6 +86,10 @@ func _physics_process(delta):
 	
 	# check for boundaries
 	_keep_inside_bounds()
+	
+	# check for prison
+	if possessed_by_ghost and Globals.ghost.is_inside_prison and Globals.ghost.room._is_inside_prison(global_position):
+		linear_velocity *= -1
 
 
 func _on_world_state_changed(new_state):

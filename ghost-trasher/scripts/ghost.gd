@@ -8,12 +8,14 @@ class_name Ghost
 @export var trigger_shape: CollisionShape2D
 @export var room: Node2D
 
-var parent_human:Human
+var parent_human: Human
 var current_state: int = 0
 var player_in_range: bool = true
+var is_inside_prison: bool = false
 
 
 func _ready():
+	Globals.ghost = self
 	WorldManager.connect("world_state_changed", _on_world_state_changed)
 	await RenderingServer.frame_post_draw
 	if player_in_range:
@@ -27,8 +29,12 @@ func _process(_delta):
 		sprite.flip_h = get_parent().sprite.flip_h
 		sprite_outline.flip_h = get_parent().sprite.flip_h
 	
+	# update flag
+	if room._is_inside_prison(global_position):
+		is_inside_prison = true
+	
 	# flee if possible
-	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman and not room._is_inside_prison(global_position):
+	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman and not is_inside_prison:
 		parent_human.possessed_by_ghost = false
 		_change_human()
 
