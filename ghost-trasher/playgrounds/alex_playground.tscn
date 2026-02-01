@@ -30,7 +30,8 @@ y_sort_enabled = true
 script = ExtResource("2_83cg8")
 human_count = 200.0
 
-[node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans") instance=ExtResource("4_sacs3")]
+[node name="Ghost" parent="YSorted" unique_id=1786284202 node_paths=PackedStringArray("humans", "room") instance=ExtResource("4_sacs3")]
 visible = false
 z_index = 1
 humans = NodePath("../HumanSpawner")
+room = NodePath("../../Room")

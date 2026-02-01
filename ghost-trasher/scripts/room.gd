@@ -79,3 +79,11 @@ func _create_3_by_3_field(map_coords):
 				nail_tiles.set_cell(pos, 4, Vector2i(1, 3))
 			if x_offset == 1 and y_offset == 1:
 				nail_tiles.set_cell(pos, 4, Vector2i(2, 3))
+
+
+func _is_inside_prison(pos: Vector2):
+	var local_coords = block_tiles.to_local(pos) + Vector2(0.0, 149.0)
+	var map_coords = block_tiles.local_to_map(local_coords)
+	if block_tiles.get_cell_atlas_coords(map_coords) != Vector2i(0,0):
+		return true
+	return false

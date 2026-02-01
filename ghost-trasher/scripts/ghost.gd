@@ -6,6 +6,7 @@ class_name Ghost
 @export var sprite: AnimatedSprite2D
 @export var sprite_outline: AnimatedSprite2D
 @export var trigger_shape: CollisionShape2D
+@export var room: Node2D
 var parent_human:Human
 
 var current_state: int = 0
@@ -26,7 +27,8 @@ func _process(_delta):
 		sprite.flip_h = get_parent().sprite.flip_h
 		sprite_outline.flip_h = get_parent().sprite.flip_h
 	
-	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman:
+	# teleport
+	if current_state == 1 and player_in_range and !parent_human.marked_by_talisman and not room._is_inside_prison(global_position):
 		_change_human()
 
 
