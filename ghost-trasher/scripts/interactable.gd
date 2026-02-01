@@ -2,7 +2,7 @@ extends Area2D
 class_name Interactable
 
 
-@export var outline: AnimatedSprite2D
+@export var outline: Node2D
 
 
 func interact():

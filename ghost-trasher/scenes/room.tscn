@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://klfhse0ri4a8" path="res://scripts/room.gd" id="1_7dqbv"]
 [ext_resource type="Texture2D" uid="uid://cqwb3m26fl7us" path="res://assets/tiles/blocks_spritesheet.png" id="3_jn645"]
-[ext_resource type="Texture2D" uid="uid://ckck75otcxl8p" path="res://assets/furniture/dj_pult.png" id="5_jxe34"]
+[ext_resource type="PackedScene" uid="uid://cmepxs44lkmv5" path="res://scenes/dj_pult.tscn" id="4_14vil"]
 [ext_resource type="Shader" uid="uid://dnwtcgclbgdv0" path="res://shaders/gray_coloring_shader.gdshader" id="5_qvc4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_14vil"]
@@ -67,19 +67,5 @@ scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AAD8//3/BAAAAAMAAAACAAMABAACAAMAAAACAP3/BAABAAMAAAD8/wMABAADAAMAAAA=")
 tile_set = SubResource("TileSet_85yof")
 
-[node name="DJPult2" type="Node2D" parent="." unique_id=13311529]
-
-[node name="DJPult" type="Sprite2D" parent="DJPult2" unique_id=777521564]
-position = Vector2(77.99999, -73.99999)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_jxe34")
-
-[node name="RigidBody2D" type="StaticBody2D" parent="DJPult2" unique_id=1252412034]
-position = Vector2(77.99999, -73.99999)
-scale = Vector2(0.2, 0.2)
-collision_layer = 256
-collision_mask = 3
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DJPult2/RigidBody2D" unique_id=55601292]
-scale = Vector2(0.99999994, 0.99999994)
-polygon = PackedVector2Array(-42, -78.5, -42, -75.3, -69.399994, -60.600006, -70.7, -61, -73.399994, -61, -75, -56.300003, -113.5, -33, -116, -33, -116, 35.200012, -120.3, 36, -125.899994, 36, -134.9, 47, -137, 47, -137, 62.899994, -129, 69.79999, -129, 71.399994, -115.3, 76, -113.899994, 76, -110, 80.70001, -110, 82.399994, -99.3, 86, -97.899994, 86, -94, 90.70001, -94, 92.5, -81.3, 96, -80.100006, 96, -77, 100.600006, -77, 102.5, -68.3, 105, -65.899994, 105, -61, 110.70001, -61, 112.79999, -47.100006, 114, -39, 121.79999, -39, 123.399994, -31.300003, 126, -29.899994, 126, -25, 131.70001, -25, 133.29999, -16.399994, 137, -11.100006, 137, -9, 140.5, -9, 142.70001, 3.7999878, 145, 8, 149.70001, 8, 151.5, 31, 157.5, 31, 159, 48, 159, 57.600006, 146.1, 71.899994, 147, 75.100006, 147, 80.79999, 137.79999, 90.20001, 137, 93.79999, 137, 99, 131.79999, 99, 129, 108.79999, 129, 114, 123.79999, 114, 122, 123.20001, 122, 129.29999, 111, 131, 111, 131, 94.100006, 122, 86.100006, 122, 84, 117, 84, 117, 12.799988)
+[node name="DjPult" parent="." unique_id=577615190 instance=ExtResource("4_14vil")]
+position = Vector2(78, -74)
