@@ -89,6 +89,3 @@ tile_set = SubResource("TileSet_85yof")
 
 [node name="DjPult" parent="." unique_id=577615190 instance=ExtResource("4_14vil")]
 position = Vector2(78, -74)
-
-[node name="SoundBox" parent="." unique_id=1285019985 instance=ExtResource("7_qvc4m")]
-position = Vector2(-125, -31)
