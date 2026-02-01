@@ -2,25 +2,5 @@
 
 [ext_resource type="Script" uid="uid://xevst4jpp0ns" path="res://scripts/interaction_manager.gd" id="1_rddhf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_djxwn"]
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Node2D" type="Node2D" unique_id=893128335]
 script = ExtResource("1_rddhf")
-
-[node name="Label" type="Label" parent="." unique_id=829348587]
-z_index = 20
-texture_filter = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -62.5
-offset_right = 62.5
-offset_bottom = 23.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-text = "[E] TO INTERACT"
-label_settings = SubResource("LabelSettings_djxwn")
-horizontal_alignment = 1
-vertical_alignment = 1
