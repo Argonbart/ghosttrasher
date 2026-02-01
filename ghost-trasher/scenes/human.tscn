@@ -118,4 +118,8 @@ outline = NodePath("../HumanOutline")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1944714637]
 shape = SubResource("CapsuleShape2D_c7jhf")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="MusicTimer" type="Timer" parent="." unique_id=741646529]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="MusicTimer" to="." method="_on_music_timer_timeout"]

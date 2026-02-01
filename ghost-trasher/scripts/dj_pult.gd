@@ -1,19 +1,31 @@
 extends StaticBody2D
 
-signal music_state_changed(new_state: MUSIC_STATE	)
+var humans = []
+@onready var timer: Timer = $Timer
+@export var cooldown: float = 7.5
 
-enum MUSIC_STATE { MUSIC_ON, MUSIC_OFF }
 
-var current_state: MUSIC_STATE = MUSIC_STATE.MUSIC_OFF
+func _ready() -> void:
+	timer.wait_time = cooldown
 
 func _on_interact():
-	music_state_changed.emit(current_state)
+	if timer.time_left > 0 and timer.time_left != cooldown:
+		return
+	else:
+		timer.wait_time = cooldown
+		timer.start()
+		for human in humans:
+			human._on_music_state_changed()
 
 
 func _on_music_area_body_entered(body: Node2D) -> void:
 	if body is Human:
-		print("Enter")
+		humans.append(body)
+		body.hit_by_music = true
+		body.music_origin = self
 
 
 func _on_music_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body is Human:
+		humans.erase(body)
+		body.hit_by_music = false

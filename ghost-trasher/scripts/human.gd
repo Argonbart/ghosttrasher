@@ -20,14 +20,19 @@ class_name Human
 @export var radius_y: float = 120.0   # north / south reach
 @export_category("Appearances")
 @export var sprite_frames_array: Array[SpriteFrames]
-var marked_by_talisman: bool = false
-var possessed_by_ghost: bool = false
+@export var music_cooldown: float = 5.0
 
 
 # variables
 var direction: Vector2 = Vector2.ZERO
 var timer: float = 0.0
 var speed: float = 0.0
+var marked_by_talisman: bool = false
+var possessed_by_ghost: bool = false
+var hit_by_music: bool = false
+var music_origin: Node2D
+@onready var music_timer: Timer = $MusicTimer
+var music_playing: bool = false
 
 
 func _ready():
@@ -40,6 +45,7 @@ func _ready():
 	linear_damp = 0.0
 	
 	# initialise
+	_set_music_timer_cooldown()
 	_pick_new_direction()
 	_set_random_appearance()
 	_set_outline_material()
@@ -71,7 +77,11 @@ func _physics_process(delta):
 	# update timer
 	timer -= delta
 	if timer <= 0.0:
-		_pick_new_direction()
+		if !music_playing:
+			_pick_new_direction()
+		else:
+			_walk_to_music_origin()
+	
 	
 	# update velocity
 	linear_velocity = direction * speed
@@ -96,6 +106,16 @@ func _on_world_state_changed(new_state):
 	sprite.material.set_shader_parameter("world_state", new_state)
 
 
+func _on_music_state_changed():
+	if (music_timer.time_left <= 0 or music_timer.wait_time == music_cooldown) and !possessed_by_ghost:
+		music_playing = true
+		music_timer.wait_time = music_cooldown
+		music_timer.start()
+
+
+func _set_music_timer_cooldown():
+	music_timer.wait_time = music_cooldown
+
 func _pick_new_direction():
 	if randf() < 0.5:
 		direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
@@ -104,11 +124,11 @@ func _pick_new_direction():
 	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
 	speed = randf_range(min_speed, max_speed)
 
-
-func _bounce_of_body(body):
-	direction = (global_position - body.global_position).normalized()
+func _walk_to_music_origin():
+	direction = Vector2(music_origin.global_position.x- self.global_position.x, music_origin.global_position.y - self.global_position.y ).normalized()
 	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
 	speed = randf_range(min_speed, max_speed)
+	print(direction)
 
 
 func _keep_inside_bounds():
@@ -160,5 +180,8 @@ func toggle_outline():
 	outline_sprite.material.set_shader_parameter("outline_active", !outline_sprite.material.get_shader_parameter("outline_active"))
 
 
-func _on_body_entered(body):
-	_bounce_of_body(body)
+func _on_music_timer_timeout() -> void:
+	music_playing = false
+	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
+	speed = randf_range(min_speed, max_speed)
