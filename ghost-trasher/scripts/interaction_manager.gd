@@ -68,11 +68,11 @@ func _input(event: InputEvent) -> void:
 		areas[0].interact.call()
 	
 	# kill if next to human
-	if event.is_action_pressed("kill") and areas[0] is Human:
+	if event.is_action_pressed("kill") and areas[0].get_parent() is Human:
 		areas[0].kill.call()
 	
 	# steal if next to human
-	if event.is_action_pressed("steal") and areas[0] is Human:
+	if event.is_action_pressed("steal") and areas[0].get_parent() is Human:
 		areas[0].steal.call()
 
 
