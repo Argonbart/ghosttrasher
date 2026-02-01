@@ -6,7 +6,7 @@ var talismans = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	talismans = [$Talisman1, $Talisman2, $Talisman3]
+	talismans = [$HBoxContainer/Talisman1, $HBoxContainer/Talisman2, $HBoxContainer/Talisman3]
 	Globals.game_ui = self
 	WorldManager.connect("world_state_changed",_on_world_changed)
 

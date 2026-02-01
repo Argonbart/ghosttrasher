@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://diq8vdwofue4x" path="res://scenes/sound_box_left.tscn" id="8_7dqbv"]
 [ext_resource type="PackedScene" uid="uid://bp73li3n2i80f" path="res://scenes/sound_box_right.tscn" id="9_ybpoa"]
 [ext_resource type="Texture2D" uid="uid://bkg4ax61sqajx" path="res://assets/furniture/bar.png" id="10_qtoah"]
-[ext_resource type="PackedScene" path="res://scenes/game_ui.tscn" id="11_eom3m"]
+[ext_resource type="PackedScene" uid="uid://c2ae4xt61klf7" path="res://scenes/game_ui.tscn" id="11_eom3m"]
 [ext_resource type="PackedScene" uid="uid://qlp64xad4xvy" path="res://scenes/led.tscn" id="12_tk5fv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_14vil"]

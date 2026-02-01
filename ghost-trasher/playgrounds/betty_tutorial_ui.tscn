@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://btm4gn32t4h7v"]
+[gd_scene format=3 uid="uid://8n4r4dvvmv5u"]
 
-[ext_resource type="Script" uid="uid://055clpo7wk62" path="res://scripts/tutorial_ui.gd" id="1_0cu3m"]
+[ext_resource type="Script" path="res://scripts/tutorial_ui.gd" id="1_0cu3m"]
 [ext_resource type="Texture2D" uid="uid://bmjntg5w63h6p" path="res://assets/ui/mask.png" id="1_35wag"]
 [ext_resource type="Texture2D" uid="uid://bu33pd7jn2ads" path="res://assets/ui/talisman.png" id="2_ki2tq"]
 [ext_resource type="Texture2D" uid="uid://ckck75otcxl8p" path="res://assets/furniture/dj_pult.png" id="3_addb8"]
@@ -13,10 +13,9 @@
 
 [node name="BettyTutorialUI" type="Control" unique_id=1135378162]
 layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0cu3m")
@@ -178,11 +177,18 @@ theme_override_font_sizes/font_size = 48
 text = "ATTAAAAACKKKK!!!!!"
 
 [node name="Button" type="Button" parent="." unique_id=714336641]
-layout_mode = 0
-offset_left = 1614.0
-offset_top = 344.0
-offset_right = 1815.0
-offset_bottom = 419.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -287.985
+offset_top = -151.82
+offset_right = -86.984985
+offset_bottom = -76.82031
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
 theme_override_colors/font_pressed_color = Color(0.4999094, 0.90647775, 0.98008543, 1)
 theme_override_colors/font_hover_color = Color(0.15711987, 0.7056182, 0.7888701, 1)

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3foxe56d3745"]
+[gd_scene format=3 uid="uid://c2ae4xt61klf7"]
 
 [ext_resource type="Script" uid="uid://be0u04ln7o1uh" path="res://scripts/game_ui.gd" id="1_yubou"]
 [ext_resource type="Texture2D" uid="uid://bmjntg5w63h6p" path="res://assets/ui/mask.png" id="2_rns2u"]
@@ -22,49 +22,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yubou")
 
-[node name="Talisman1" type="TextureRect" parent="." unique_id=1142376022]
-layout_mode = 0
-offset_left = 1544.0
-offset_top = 16.0
-offset_right = 2056.0
-offset_bottom = 528.0
-scale = Vector2(0.2, 0.2)
-texture = SubResource("CompressedTexture2D_ojb23")
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=577822926]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -478.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 170.0
+grow_horizontal = 0
 
-[node name="Talisman2" type="TextureRect" parent="." unique_id=1190920040]
-layout_mode = 0
-offset_left = 1664.0
-offset_top = 16.0
-offset_right = 2176.0
-offset_bottom = 528.0
-scale = Vector2(0.2, 0.2)
+[node name="Talisman1" type="TextureRect" parent="HBoxContainer" unique_id=1142376022]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
 texture = SubResource("CompressedTexture2D_ojb23")
+expand_mode = 1
 
-[node name="Talisman3" type="TextureRect" parent="." unique_id=1766356670]
-layout_mode = 0
-offset_left = 1784.0
-offset_top = 16.0
-offset_right = 2296.0
-offset_bottom = 528.0
-scale = Vector2(0.2, 0.2)
+[node name="Talisman2" type="TextureRect" parent="HBoxContainer" unique_id=1190920040]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
 texture = SubResource("CompressedTexture2D_ojb23")
+expand_mode = 1
+
+[node name="Talisman3" type="TextureRect" parent="HBoxContainer" unique_id=1766356670]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_ojb23")
+expand_mode = 1
 
 [node name="MaskSprite" type="TextureRect" parent="." unique_id=1870243866]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 899.0
-offset_right = 536.0
-offset_bottom = 1411.0
-scale = Vector2(0.3, 0.3)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -512.0
+offset_right = 512.0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(100, 400)
 texture = ExtResource("2_rns2u")
 
 [node name="MaskOutline" type="TextureRect" parent="." unique_id=1186849028]
 visible = false
 material = SubResource("ShaderMaterial_u2dgd")
-layout_mode = 0
-offset_left = 24.0
-offset_top = 899.0
-offset_right = 536.0
-offset_bottom = 1411.0
-scale = Vector2(0.3, 0.3)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -512.0
+offset_right = 512.0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(100, 400)
 texture = ExtResource("2_rns2u")

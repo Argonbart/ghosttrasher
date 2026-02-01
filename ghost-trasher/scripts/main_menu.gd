@@ -38,4 +38,4 @@ func _on_quit_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	$VideoStreamPlayer.play()
-	$ButtonManager/Button.hide()
+	#$ButtonManager/Button.hide()

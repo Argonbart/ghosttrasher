@@ -71,16 +71,35 @@ stream = ExtResource("3_2kywn")
 volume_db = -30.0
 
 [node name="ButtonManager" type="Control" parent="." unique_id=838535745]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Start" type="Button" parent="ButtonManager" unique_id=1473811273]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 564.0
-offset_right = 1059.0
-offset_bottom = 649.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonManager" unique_id=445211319]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = 81.1
+offset_right = 56.5
+offset_bottom = 205.1
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Start" type="Button" parent="ButtonManager/VBoxContainer" unique_id=1473811273]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
 theme_override_colors/font_pressed_color = Color(0.49803922, 0.90588236, 0.98039216, 1)
 theme_override_colors/font_hover_color = Color(0.15686275, 0.7058824, 0.7882353, 1)
@@ -92,12 +111,8 @@ theme_override_styles/hover = ExtResource("4_bq2nd")
 theme_override_styles/hover_mirrored = ExtResource("6_o1vpj")
 text = "Start"
 
-[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=844394805]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 671.0
-offset_right = 1059.0
-offset_bottom = 756.0
+[node name="Tutorial" type="Button" parent="ButtonManager/VBoxContainer" unique_id=844394805]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
 theme_override_colors/font_pressed_color = Color(0.49803922, 0.90588236, 0.98039216, 1)
 theme_override_colors/font_hover_color = Color(0.15686275, 0.7058824, 0.7882353, 1)
@@ -107,12 +122,8 @@ theme_override_styles/pressed = ExtResource("5_4jol6")
 theme_override_styles/hover = ExtResource("6_o1vpj")
 text = "Tutorial"
 
-[node name="Quit" type="Button" parent="ButtonManager" unique_id=1416652166]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 778.0
-offset_right = 1059.0
-offset_bottom = 863.0
+[node name="Quit" type="Button" parent="ButtonManager/VBoxContainer" unique_id=1416652166]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
 theme_override_colors/font_pressed_color = Color(0.49803922, 0.90588236, 0.98039216, 1)
 theme_override_colors/font_hover_color = Color(0.15686275, 0.7058824, 0.7882353, 1)
@@ -122,14 +133,21 @@ theme_override_styles/pressed = ExtResource("5_4jol6")
 theme_override_styles/hover = ExtResource("6_o1vpj")
 text = "Quit"
 
-[node name="Button" type="Button" parent="ButtonManager" unique_id=1282174584]
-layout_mode = 0
-offset_left = 390.0
-offset_top = 528.0
-offset_right = 398.0
-offset_bottom = 536.0
+[node name="Button" type="TextureButton" parent="ButtonManager" unique_id=272203446]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -117.79
+offset_right = 56.5
+offset_bottom = -17.790016
+grow_horizontal = 2
+grow_vertical = 0
 
-[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonManager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="ButtonManager/Button" to="." method="_on_button_pressed"]
