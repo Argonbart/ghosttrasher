@@ -107,14 +107,14 @@ func _on_world_state_changed(new_state):
 
 
 func _on_music_state_changed():
-	if (music_timer.time_left <= 0 or music_timer.wait_time == music_cooldown) and !possessed_by_ghost:
+	if (music_timer.wait_time == music_cooldown) and !possessed_by_ghost:
 		music_playing = true
-		music_timer.wait_time = music_cooldown
 		music_timer.start()
 
 
 func _set_music_timer_cooldown():
 	music_timer.wait_time = music_cooldown
+
 
 func _pick_new_direction():
 	if randf() < 0.5:
@@ -128,7 +128,6 @@ func _walk_to_music_origin():
 	direction = Vector2(music_origin.global_position.x- self.global_position.x, music_origin.global_position.y - self.global_position.y ).normalized()
 	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
 	speed = randf_range(min_speed, max_speed)
-	print(direction)
 
 
 func _keep_inside_bounds():
@@ -182,6 +181,7 @@ func toggle_outline():
 
 func _on_music_timer_timeout() -> void:
 	music_playing = false
+	music_timer.wait_time = music_cooldown
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 	timer = change_direction_time + randf_range(-change_direction_time_vary, change_direction_time_vary)
 	speed = randf_range(min_speed, max_speed)

@@ -56,3 +56,4 @@ one_shot = true
 
 [connection signal="body_entered" from="MusicArea" to="." method="_on_music_area_body_entered"]
 [connection signal="body_exited" from="MusicArea" to="." method="_on_music_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cmepxs44lkmv5" path="res://scenes/dj_pult.tscn" id="4_14vil"]
 [ext_resource type="Material" uid="uid://cpmpcwq02bwc3" path="res://rune_cell_material.tres" id="4_jn645"]
 [ext_resource type="Shader" uid="uid://dnwtcgclbgdv0" path="res://shaders/gray_coloring_shader.gdshader" id="5_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://k5kvsjogrfra" path="res://scenes/sound_box.tscn" id="7_qvc4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_14vil"]
 shader = ExtResource("5_qvc4m")
@@ -80,3 +81,6 @@ tile_set = SubResource("TileSet_85yof")
 
 [node name="DjPult" parent="." unique_id=577615190 instance=ExtResource("4_14vil")]
 position = Vector2(78, -74)
+
+[node name="SoundBox" parent="." unique_id=1285019985 instance=ExtResource("7_qvc4m")]
+position = Vector2(-125, -31)
