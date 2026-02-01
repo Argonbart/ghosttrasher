@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 func _on_play_again_pressed() -> void:

@@ -61,7 +61,8 @@ func _on_interact():
 	if !marked_by_talisman && Globals.player.remaining_talismans > 0:
 		marked_by_talisman = true
 		Globals.player.remaining_talismans -= 1
-		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
+		Globals.game_ui.talismans[0].hide()
+		Globals.game_ui.talismans.remove_at(0)
 		talisman_sprite.show()
 
 

@@ -1,51 +1,149 @@
 [gd_scene format=3 uid="uid://rapdab0ixbbw"]
 
 [ext_resource type="Script" uid="uid://dm0j561nurmi0" path="res://scripts/win_screen.gd" id="1_0q706"]
-[ext_resource type="Texture2D" uid="uid://bs2insnfp6qj5" path="res://assets/menu/trashpanda2.png" id="2_xa44n"]
+[ext_resource type="Texture2D" uid="uid://w20dbhyaiqyh" path="res://assets/menu/wintrashpanda.png" id="3_6b3g2"]
+[ext_resource type="AudioStream" uid="uid://dut3venl56owb" path="res://assets/sounds/WinScreen.mp3" id="3_xa44n"]
 
-[node name="WinScreen" type="Node2D" unique_id=1661391310]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_totw6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa44n"]
+bg_color = Color(0.45064825, 0.4506483, 0.45064813, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b3g2"]
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmj1w"]
+atlas = ExtResource("3_6b3g2")
+region = Rect2(0, 0, 3000, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dknn2"]
+atlas = ExtResource("3_6b3g2")
+region = Rect2(3000, 0, 3000, 3000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3ngq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmj1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dknn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_totw6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kmj1w"]
+resource_name = "rotate"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5707964, -3.1415927, -4.712389, -6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dknn2"]
+_data = {
+&"RESET": SubResource("Animation_totw6"),
+&"rotate": SubResource("Animation_kmj1w")
+}
+
+[node name="WinScreen" type="Control" unique_id=697227882]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0q706")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684409794]
-position = Vector2(958.5, 543.5)
-scale = Vector2(4.6838236, 3.0138888)
-texture = ExtResource("2_xa44n")
+[node name="Panel" type="Panel" parent="." unique_id=283599563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_totw6")
 
-[node name="Control" type="Control" parent="." unique_id=682540027]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1907359831]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control" unique_id=1256672144]
+[node name="Label" type="Label" parent="." unique_id=1256672144]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 126.0
-offset_right = 707.0
-offset_bottom = 181.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 193.0
+offset_top = 380.0
+offset_right = 730.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Another successful mission!"
 
-[node name="PlayAgain" type="Button" parent="Control" unique_id=1411494080]
-layout_mode = 0
-offset_left = 338.0
-offset_top = 254.0
-offset_right = 538.0
-offset_bottom = 339.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="PlayAgain" type="Button" parent="." unique_id=1411494080]
+layout_mode = 1
+offset_left = 358.0
+offset_top = 491.0
+offset_right = 558.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xa44n")
 text = "Play Again"
 
-[node name="ReturnToMenu" type="Button" parent="Control" unique_id=527010109]
+[node name="ReturnToMenu" type="Button" parent="." unique_id=527010109]
 layout_mode = 0
-offset_left = 279.0
-offset_top = 366.0
-offset_right = 595.0
-offset_bottom = 451.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 302.0
+offset_top = 620.0
+offset_right = 618.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6b3g2")
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="Control/PlayAgain" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="Control/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1686844875]
+stream = ExtResource("3_xa44n")
+volume_db = -10.0
+autoplay = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1506405358]
+position = Vector2(1274, 580)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_k3ngq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=2205058]
+libraries/ = SubResource("AnimationLibrary_dknn2")
+autoplay = &"rotate"
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

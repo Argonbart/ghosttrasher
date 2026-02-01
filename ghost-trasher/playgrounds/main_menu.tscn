@@ -4,15 +4,26 @@
 [ext_resource type="Script" uid="uid://ccmarw6b4aqer" path="res://scripts/main_menu.gd" id="1_vu8k6"]
 [ext_resource type="VideoStream" uid="uid://h676ded1taii" path="res://assets/menu/trashpanda.ogv" id="3_2kywn"]
 
-[node name="MainMenu" type="Node2D" unique_id=1174218410]
+[node name="MainMenu" type="Control" unique_id=75435708]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_vu8k6")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1639514557]
-position = Vector2(961.00006, 540)
-scale = Vector2(3.205, 1.8)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1231583457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_446hn")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2098789370]
+layout_mode = 0
 offset_left = 732.0
 offset_top = 162.0
 offset_right = 1452.0
@@ -22,7 +33,6 @@ stream = ExtResource("3_2kywn")
 volume_db = -30.0
 
 [node name="ButtonManager" type="Control" parent="." unique_id=838535745]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

@@ -1,5 +1,4 @@
-extends Node2D
-
+extends Control
 
 
 func _on_start_pressed() -> void:

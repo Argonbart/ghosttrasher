@@ -505,13 +505,13 @@ animations = [{
 radius = 4.0
 height = 12.0
 
-[node name="Player" type="CharacterBody2D" unique_id=125667676 node_paths=PackedStringArray("anim_sprite", "talismans_label") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=125667676 node_paths=PackedStringArray("anim_sprite", "camera") groups=["player"]]
 collision_layer = 2
 collision_mask = 4352
 script = ExtResource("1_3vyb7")
 speed = 120.0
 anim_sprite = NodePath("AnimatedSprite2D")
-talismans_label = NodePath("RichTextLabel")
+camera = NodePath("Camera2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=637743644]
 texture_filter = 1
@@ -523,20 +523,4 @@ position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_ur7pv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
-zoom = Vector2(2.07, 2.07)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112099198]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1584397657]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 29.0
-offset_top = -129.0
-offset_right = 231.0
-offset_bottom = -89.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Remaining Talsimans: "
+zoom = Vector2(2, 2)

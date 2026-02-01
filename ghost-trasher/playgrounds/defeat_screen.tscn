@@ -3,21 +3,25 @@
 [ext_resource type="Script" uid="uid://co1qkh3uxgxgh" path="res://scripts/defeat_screen.gd" id="1_sox2q"]
 [ext_resource type="Texture2D" uid="uid://dkhthb71jr7oq" path="res://assets/menu/trashpanda3.png" id="2_1ycok"]
 
-[node name="DefeatScreen" type="Node2D" unique_id=1800754046]
+[node name="DefeatScreen" type="Control" unique_id=802785615]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sox2q")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1058786093]
-position = Vector2(958, 542)
-scale = Vector2(8.093221, 4.576271)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=567965786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_1ycok")
 
-[node name="Control" type="Control" parent="." unique_id=1984032717]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Control" unique_id=671841714]
+[node name="Label" type="Label" parent="." unique_id=671841714]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 54.0
@@ -27,7 +31,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Back to the trash with you!"
 
-[node name="PlayAgain" type="Button" parent="Control" unique_id=2107940084]
+[node name="PlayAgain" type="Button" parent="." unique_id=2107940084]
 layout_mode = 0
 offset_left = 284.0
 offset_top = 278.0
@@ -37,7 +41,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Play Again"
 
-[node name="ReturnToMenu" type="Button" parent="Control" unique_id=46408302]
+[node name="ReturnToMenu" type="Button" parent="." unique_id=46408302]
 layout_mode = 0
 offset_left = 231.0
 offset_top = 391.0
@@ -47,5 +51,5 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="Control/PlayAgain" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="Control/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
