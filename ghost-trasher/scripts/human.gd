@@ -85,7 +85,7 @@ func _physics_process(delta):
 		outline_sprite.flip_h = false
 	
 	# check for boundaries
-	_keep_inside_bounds()
+	#_keep_inside_bounds()
 	
 	# check for prison
 	if possessed_by_ghost and Globals.ghost.is_inside_prison and Globals.ghost.room._is_inside_prison(global_position):

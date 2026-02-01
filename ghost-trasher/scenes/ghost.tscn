@@ -47,6 +47,7 @@ script = ExtResource("1_l5lq6")
 sprite = NodePath("GhostSprite")
 sprite_outline = NodePath("GhostOutline")
 trigger_shape = NodePath("TriggerArea/TriggerShape")
+max_teleport_range = 750.0
 
 [node name="GhostOutline" type="AnimatedSprite2D" parent="." unique_id=1464133391]
 material = SubResource("ShaderMaterial_5mfnq")
