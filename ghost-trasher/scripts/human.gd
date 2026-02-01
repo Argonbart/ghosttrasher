@@ -33,7 +33,7 @@ func _ready():
 	# connect signals
 	WorldManager.connect("world_state_changed", _on_world_state_changed)
 	
-	interactable.interact = Callable(self, "_on_interact")
+	#interactable.interact = Callable(self, "_on_interact")
 	
 	# set rigid body parameters
 	gravity_scale = 0.0
@@ -46,22 +46,15 @@ func _ready():
 
 
 func _on_interact():
+	if marked_by_talisman:
+		return
+	
 	if !marked_by_talisman && Globals.player.remaining_talismans > 0:
 		marked_by_talisman = true
-		InteractionManager.unregister_area_unmarked(interactable)
-		InteractionManager.register_area_marked(interactable)
+		InteractionManager.unregister_area(interactable)
 		Globals.player.remaining_talismans -= 1
 		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
 		outline_sprite.material.set_shader_parameter("line_color", Color.GREEN)
-	elif marked_by_talisman: 
-		marked_by_talisman = false
-		InteractionManager.unregister_area_marked(interactable)
-		Globals.player.remaining_talismans += 1
-		Globals.player.talismans_label.text = "Remaining Talismans: " + str(Globals.player.remaining_talismans)
-		outline_sprite.hide()
-		InteractionManager.label.hide()
-		outline_sprite.material.set_shader_parameter("line_color", Color.RED)
-		InteractionManager.register_area_unmarked(interactable)
 
 
 func _physics_process(delta):

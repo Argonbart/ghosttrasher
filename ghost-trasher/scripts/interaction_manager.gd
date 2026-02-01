@@ -1,85 +1,57 @@
 extends Node2D
 
-var player: CharacterBody2D
-@onready var label: Label = $Label
+var areas = []
+
+func _ready() -> void:
+	WorldManager.connect("world_state_changed", _on_world_state_changed)
 
 
-const base_text = "[E]"
-
-var active_areas_unmarked = []
-var active_areas_marked = []
-var can_interact: bool = true
-
-
-func register_area_unmarked(area: Interactable):
-	active_areas_unmarked.push_back(area)
-
-
-func register_area_marked(area: Interactable):
-	active_areas_marked.push_back(area)
-
-
-func unregister_area_unmarked(area: Interactable):
-	var index = active_areas_unmarked.find(area)
-	if index != -1:
-		active_areas_unmarked.remove_at(index)
-
-
-func unregister_area_marked(area: Interactable):
-	var index = active_areas_marked.find(area)
-	if index != -1:
-		active_areas_marked.remove_at(index)
-
-
-func _process(_delta: float) -> void:
-	if (active_areas_unmarked.size() > 0 || active_areas_marked.size() > 0) && can_interact:
-		if active_areas_marked.size() > 0:
-			active_areas_marked.sort_custom(_sort_by_distance_to_player)
-			label.text = base_text
-			label.global_position = active_areas_marked[0].global_position
-			label.global_position.y -= active_areas_marked[0].label_offset
-			label.global_position.x -= label.size.x / 2
-			label.show()
-		else:
-			active_areas_unmarked.sort_custom(_sort_by_distance_to_player)
-			for i in range(active_areas_unmarked.size()):
-				active_areas_unmarked[i].outline.hide()
-			label.text = base_text
-			label.global_position = active_areas_unmarked[0].global_position
-			label.global_position.y -= active_areas_unmarked[0].label_offset
-			label.global_position.x -= label.size.x / 2
-			label.show()
-			active_areas_unmarked[0].outline.show()
+func _on_world_state_changed(new_state: WorldManager.WORLD_STATE):
+	var remove_counter = 0
+	if new_state == WorldManager.WORLD_STATE.GHOST_WORLD:
+		for i in range(areas.size()):
+			if areas[i - remove_counter].get_parent() is Human:
+				areas[i - remove_counter].outline.hide()
+				areas.remove_at(i - remove_counter)
+				remove_counter += 1 
 	else:
-		label.hide()
+		for i in range(areas.size()):
+			if areas[i - remove_counter].get_parent() is not Human:
+				areas[i - remove_counter].outline.hide()
+				areas.remove_at(i - remove_counter)
+				remove_counter += 1 
+
+func register_area(area: Interactable):
+	if area.get_parent() is Human and WorldManager.current_state == WorldManager.WORLD_STATE.HUMAN_WORLD:
+		areas.append(area)
+		
+	if area.get_parent() is not Human and WorldManager.current_state == WorldManager.WORLD_STATE.GHOST_WORLD:
+		areas.append(area)
+
+
+func unregister_area(area: Interactable):
+	areas.erase(area)
+
+
+func _process(_delta: float) -> void:	
+	if areas.size() > 0:
+		areas.sort_custom(_sort_by_distance_to_player)
+		for i in range(areas.size()):
+			areas[i].outline.hide()
+		areas[0].outline.show()
 
 
 func _sort_by_distance_to_player(area1, area2):
-		var area1_to_player = player.global_position.distance_to(area1.global_position)
-		var area2_to_player = player.global_position.distance_to(area2.global_position)
+		var area1_to_player = Globals.player.global_position.distance_to(area1.global_position)
+		var area2_to_player = Globals.player.global_position.distance_to(area2.global_position)
 		return area1_to_player < area2_to_player
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") && can_interact:
-		if active_areas_marked.size() > 0:
-			can_interact = false
-			label.hide()
-			
-			await active_areas_marked[0].interact.call()
-			
-			can_interact = true
-		elif active_areas_unmarked.size() > 0:
-			can_interact = false
-			label.hide()
-			
-			await active_areas_unmarked[0].interact.call()
-			
-			can_interact = true
-	elif event.is_action_pressed("kill") && can_interact:
+	if areas.is_empty():
+		return
+	
+	if event.is_action_pressed("interact"):
+		areas[0].interact.call()
+	elif event.is_action_pressed("kill"):
 		print("töten")
-
-
-
-func _set_player():
-	player = get_tree().get_first_node_in_group("player")

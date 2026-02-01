@@ -19,7 +19,6 @@ var last_animation: String = "idle_down"
 
 func _ready():
 	Globals.player = self
-	InteractionManager.player = self
 	remaining_talismans = max_talismans
 	talismans_label.text = "Remaining Talismans: " + str(remaining_talismans)
 
