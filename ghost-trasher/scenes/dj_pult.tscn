@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cmepxs44lkmv5"]
+
+[ext_resource type="Texture2D" uid="uid://ckck75otcxl8p" path="res://assets/furniture/dj_pult.png" id="1_2dc56"]
+[ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="1_ieq1q"]
+[ext_resource type="Script" uid="uid://bdduldu1rrvh5" path="res://scripts/dj_pult.gd" id="1_xvtgh"]
+[ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://scenes/interactable.tscn" id="3_g54e6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g54e6"]
+shader = ExtResource("1_ieq1q")
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 5.0
+shader_parameter/glow_multiplier = 5.0000000596048
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvtgh"]
+radius = 38.118237
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08wcd"]
+radius = 70.0
+
+[node name="DjPult" type="StaticBody2D" unique_id=577615190]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_xvtgh")
+
+[node name="DjOutline" type="Sprite2D" parent="." unique_id=1611977358]
+visible = false
+material = SubResource("ShaderMaterial_g54e6")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2dc56")
+
+[node name="DjSprite" type="Sprite2D" parent="." unique_id=6012466]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2dc56")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1699155328]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-42, -78.5, -42, -75.3, -69.399994, -60.600006, -70.7, -61, -73.399994, -61, -75, -56.300003, -113.5, -33, -116, -33, -116, 35.200012, -120.3, 36, -125.899994, 36, -134.9, 47, -137, 47, -137, 62.899994, -129, 69.79999, -129, 71.399994, -115.3, 76, -113.899994, 76, -110, 80.70001, -110, 82.399994, -99.3, 86, -97.899994, 86, -94, 90.70001, -94, 92.5, -81.3, 96, -80.100006, 96, -77, 100.600006, -77, 102.5, -68.3, 105, -65.899994, 105, -61, 110.70001, -61, 112.79999, -47.100006, 114, -39, 121.79999, -39, 123.399994, -31.300003, 126, -29.899994, 126, -25, 131.70001, -25, 133.29999, -16.399994, 137, -11.100006, 137, -9, 140.5, -9, 142.70001, 3.7999878, 145, 8, 149.70001, 8, 151.5, 31, 157.5, 31, 159, 48, 159, 57.600006, 146.1, 71.899994, 147, 75.100006, 147, 80.79999, 137.79999, 90.20001, 137, 93.79999, 137, 99, 131.79999, 99, 129, 108.79999, 129, 114, 123.79999, 114, 122, 123.20001, 122, 129.29999, 111, 131, 111, 131, 94.100006, 122, 86.100006, 122, 84, 117, 84, 117, 12.799988)
+
+[node name="Interactable" parent="." unique_id=1858754028 node_paths=PackedStringArray("outline") instance=ExtResource("3_g54e6")]
+outline = NodePath("../DjOutline")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1016482924]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_xvtgh")
+
+[node name="MusicArea" type="Area2D" parent="." unique_id=1426843118]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea" unique_id=128810999]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_08wcd")
+
+[connection signal="body_entered" from="MusicArea" to="." method="_on_music_area_body_entered"]
+[connection signal="body_exited" from="MusicArea" to="." method="_on_music_area_body_exited"]
