@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ryh443nptj7u"]
 
-[ext_resource type="PackedScene" path="res://scenes/room.tscn" id="1_j8e66"]
+[ext_resource type="PackedScene" uid="uid://dij0pon1ksbo0" path="res://scenes/room.tscn" id="1_j8e66"]
 [ext_resource type="Script" uid="uid://ba8oy8afq6xi" path="res://scripts/human_spawner.gd" id="2_83cg8"]
 [ext_resource type="PackedScene" uid="uid://bi0lklcyqc5wc" path="res://scenes/player.tscn" id="3_83cg8"]
 [ext_resource type="PackedScene" uid="uid://v0up22nlk3ty" path="res://scenes/ghost.tscn" id="4_sacs3"]
