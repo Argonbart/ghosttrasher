@@ -22,8 +22,9 @@ environment = SubResource("Environment_sacs3")
 [node name="YSorted" type="Node2D" parent="." unique_id=2106642549]
 y_sort_enabled = true
 
-[node name="Player" parent="YSorted" unique_id=125667676 instance=ExtResource("3_83cg8")]
+[node name="Player" parent="YSorted" unique_id=125667676 node_paths=PackedStringArray("room") instance=ExtResource("3_83cg8")]
 position = Vector2(-133, 0)
+room = NodePath("../../Room")
 
 [node name="HumanSpawner" type="Node2D" parent="YSorted" unique_id=476753582]
 y_sort_enabled = true

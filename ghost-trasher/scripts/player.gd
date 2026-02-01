@@ -10,8 +10,9 @@ var remaining_talismans: int
 
 #nodes
 @export_category("Nodes")
-@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var talismans_label: RichTextLabel = $RichTextLabel
+@export var anim_sprite: AnimatedSprite2D
+@export var talismans_label: RichTextLabel
+@export var room: Node2D
 
 #variables
 var last_animation: String = "idle_down"

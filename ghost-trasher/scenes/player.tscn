@@ -505,11 +505,13 @@ animations = [{
 radius = 4.0
 height = 12.0
 
-[node name="Player" type="CharacterBody2D" unique_id=125667676 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=125667676 node_paths=PackedStringArray("anim_sprite", "talismans_label") groups=["player"]]
 collision_layer = 2
-collision_mask = 256
+collision_mask = 4352
 script = ExtResource("1_3vyb7")
 speed = 120.0
+anim_sprite = NodePath("AnimatedSprite2D")
+talismans_label = NodePath("RichTextLabel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=637743644]
 texture_filter = 1
@@ -521,7 +523,7 @@ position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_ur7pv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61398270]
-zoom = Vector2(4.1, 4.1)
+zoom = Vector2(4.97, 4.97)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112099198]
 
