@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ds08ikw5l30av"]
+
+[ext_resource type="Shader" uid="uid://ctlpetttb7j1f" path="res://shaders/invis_cell.gdshader" id="1_jllml"]
+
+[resource]
+shader = ExtResource("1_jllml")
+shader_parameter/flex_color = Color(0, 0, 0, 1)
+shader_parameter/alpha_value = 0.0
