@@ -4,6 +4,11 @@
 [ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="1_ieq1q"]
 [ext_resource type="Script" uid="uid://bdduldu1rrvh5" path="res://scripts/dj_pult.gd" id="1_xvtgh"]
 [ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://scenes/interactable.tscn" id="3_g54e6"]
+[ext_resource type="Texture2D" uid="uid://l33rb6vyeeq2" path="res://assets/others/bumbumbum/music_particle_one.png" id="5_08wcd"]
+[ext_resource type="Script" uid="uid://dbjo5xhq31eud" path="res://scripts/dj_effects.gd" id="5_vq21m"]
+[ext_resource type="Texture2D" uid="uid://dnllh5ajggldu" path="res://assets/others/bumbumbum/music_particle_two.png" id="6_lnrm0"]
+[ext_resource type="Texture2D" uid="uid://bt8y47vftajia" path="res://assets/others/bumbumbum/music_particle_four.png" id="7_0nk23"]
+[ext_resource type="Texture2D" uid="uid://ddaldwm0plr0k" path="res://assets/others/bumbumbum/music_particle_three.png" id="8_diqvu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g54e6"]
 shader = ExtResource("1_ieq1q")
@@ -17,10 +22,30 @@ radius = 38.118237
 [sub_resource type="CircleShape2D" id="CircleShape2D_08wcd"]
 radius = 280.00714
 
-[node name="DjPult" type="StaticBody2D" unique_id=577615190]
+[sub_resource type="Gradient" id="Gradient_diqvu"]
+colors = PackedColorArray(1, 0.11372549, 0.5294118, 1, 0.30980393, 0.85490197, 0.94509804, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vq21m"]
+gradient = SubResource("Gradient_diqvu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lnrm0"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 50.0
+emission_ring_inner_radius = 15.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.04
+color_ramp = SubResource("GradientTexture1D_vq21m")
+
+[node name="DjPult" type="StaticBody2D" unique_id=577615190 node_paths=PackedStringArray("effects")]
 collision_layer = 256
 collision_mask = 3
 script = ExtResource("1_xvtgh")
+effects = NodePath("Effects")
 
 [node name="DjOutline" type="Sprite2D" parent="." unique_id=1611977358]
 visible = false
@@ -53,6 +78,43 @@ shape = SubResource("CircleShape2D_08wcd")
 [node name="Timer" type="Timer" parent="." unique_id=1638654345]
 wait_time = 7.5
 one_shot = true
+
+[node name="Effects" type="Node2D" parent="." unique_id=1597918433 node_paths=PackedStringArray("particle_effects")]
+position = Vector2(0, 5)
+script = ExtResource("5_vq21m")
+particle_effects = [NodePath("GPUParticles2D"), NodePath("GPUParticles2D2"), NodePath("GPUParticles2D3"), NodePath("GPUParticles2D4")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Effects" unique_id=680203632]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("5_08wcd")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lnrm0")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Effects" unique_id=2142152963]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("6_lnrm0")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lnrm0")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="Effects" unique_id=1131876705]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("7_0nk23")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lnrm0")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="Effects" unique_id=2088327984]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("8_diqvu")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lnrm0")
 
 [connection signal="body_entered" from="MusicArea" to="." method="_on_music_area_body_entered"]
 [connection signal="body_exited" from="MusicArea" to="." method="_on_music_area_body_exited"]

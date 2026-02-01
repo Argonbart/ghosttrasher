@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://2wrowg36vxvb"]
+[gd_scene format=3 uid="uid://bp73li3n2i80f"]
 
 [ext_resource type="Script" uid="uid://dr0eg14n5p0no" path="res://scripts/sound_box.gd" id="1_0ojhg"]
 [ext_resource type="Shader" uid="uid://c74nh1yluua6y" path="res://shaders/outline.gdshader" id="2_kroii"]
 [ext_resource type="Texture2D" uid="uid://bdpttojiurd7s" path="res://assets/furniture/sound_box.png" id="3_vhtr0"]
 [ext_resource type="PackedScene" uid="uid://tmdhqqod4gww" path="res://scenes/interactable.tscn" id="4_hejy7"]
+[ext_resource type="Script" uid="uid://dbjo5xhq31eud" path="res://scripts/dj_effects.gd" id="5_n0sh5"]
+[ext_resource type="Texture2D" uid="uid://l33rb6vyeeq2" path="res://assets/others/bumbumbum/music_particle_one.png" id="6_tm754"]
+[ext_resource type="Texture2D" uid="uid://dnllh5ajggldu" path="res://assets/others/bumbumbum/music_particle_two.png" id="7_l3jt5"]
+[ext_resource type="Texture2D" uid="uid://bt8y47vftajia" path="res://assets/others/bumbumbum/music_particle_four.png" id="8_so0rb"]
+[ext_resource type="Texture2D" uid="uid://ddaldwm0plr0k" path="res://assets/others/bumbumbum/music_particle_three.png" id="9_lfcvh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l21c0"]
 shader = ExtResource("2_kroii")
@@ -17,10 +22,30 @@ radius = 36.013885
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0dbn"]
 radius = 160.04999
 
-[node name="SoundBox" type="StaticBody2D" unique_id=1285019985]
+[sub_resource type="Gradient" id="Gradient_3y7ub"]
+colors = PackedColorArray(1, 0.11372549, 0.5294118, 1, 0.30980393, 0.85490197, 0.94509804, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4btn3"]
+gradient = SubResource("Gradient_3y7ub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s722y"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 50.0
+emission_ring_inner_radius = 15.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.04
+color_ramp = SubResource("GradientTexture1D_4btn3")
+
+[node name="SoundBox" type="StaticBody2D" unique_id=1285019985 node_paths=PackedStringArray("effects")]
 collision_layer = 256
 collision_mask = 3
 script = ExtResource("1_0ojhg")
+effects = NodePath("Effects")
 cooldown = 6.0
 
 [node name="BoxOutline" type="Sprite2D" parent="." unique_id=1691759829]
@@ -55,6 +80,43 @@ shape = SubResource("CircleShape2D_h0dbn")
 
 [node name="Timer" type="Timer" parent="." unique_id=1299049628]
 one_shot = true
+
+[node name="Effects" type="Node2D" parent="." unique_id=567491660 node_paths=PackedStringArray("particle_effects")]
+position = Vector2(0, 5)
+script = ExtResource("5_n0sh5")
+particle_effects = [NodePath("GPUParticles2D"), NodePath("GPUParticles2D2"), NodePath("GPUParticles2D3"), NodePath("GPUParticles2D4")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Effects" unique_id=367752431]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("6_tm754")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_s722y")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Effects" unique_id=2067839125]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("7_l3jt5")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_s722y")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="Effects" unique_id=522357265]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("8_so0rb")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_s722y")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="Effects" unique_id=926715502]
+z_index = 30
+emitting = false
+amount = 10
+texture = ExtResource("9_lfcvh")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_s722y")
 
 [connection signal="body_entered" from="MusicArea" to="." method="_on_music_area_body_entered"]
 [connection signal="body_exited" from="MusicArea" to="." method="_on_music_area_body_exited"]

@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var humans = []
+@export var effects: Node2D
 @onready var timer: Timer = $Timer
 @export var cooldown: float = 7.5
 
@@ -13,6 +14,8 @@ func _on_interact():
 		return
 	else:
 		timer.start()
+		effects.toggle_effects()
+		
 		for human in humans:
 			human._on_music_state_changed()
 
@@ -32,3 +35,4 @@ func _on_music_area_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = cooldown
+	effects.toggle_effects()
