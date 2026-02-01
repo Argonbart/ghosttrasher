@@ -50,7 +50,7 @@ func unregister_area(area: Interactable):
 func _process(_delta: float) -> void:
 	
 	# show outline of closest area in areas
-	if areas.size() > 0 and WorldManager.current_state:
+	if areas.size() > 0:
 		areas.sort_custom(_sort_by_distance_to_player)
 		for area in areas:
 			area.outline.hide()
@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	
 	# nothing to interact with
-	if not areas.is_empty():
+	if areas.is_empty():
 		return
 	
 	# interact with next interactable
