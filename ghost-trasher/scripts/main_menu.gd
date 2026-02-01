@@ -5,7 +5,7 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://playgrounds/alex_playground.tscn")
 
 func _on_tutorial_pressed() -> void:
-	print("Hier Control Sheet einfügen")
+	get_tree().change_scene_to_file("res://playgrounds/betty_tutorial_ui.tscn")
 
 
 func _on_quit_pressed() -> void:

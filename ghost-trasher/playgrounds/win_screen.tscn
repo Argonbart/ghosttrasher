@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://bxf6tkvksfql6"]
 
 [ext_resource type="Script" uid="uid://dm0j561nurmi0" path="res://scripts/win_screen.gd" id="1_0q706"]
+[ext_resource type="StyleBox" uid="uid://b21xede3ybhrq" path="res://ui/button_style_normal.tres" id="2_kmj1w"]
 [ext_resource type="Texture2D" uid="uid://w20dbhyaiqyh" path="res://assets/menu/wintrashpanda.png" id="3_6b3g2"]
+[ext_resource type="StyleBox" uid="uid://chd2c57ek6h40" path="res://ui/button_style_pressed.tres" id="3_dknn2"]
 [ext_resource type="AudioStream" uid="uid://dut3venl56owb" path="res://assets/sounds/WinScreen.mp3" id="3_xa44n"]
+[ext_resource type="StyleBox" uid="uid://ds67glolo46gx" path="res://ui/button_style_hovered.tres" id="4_k3ngq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_totw6"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa44n"]
-bg_color = Color(0.45064825, 0.4506483, 0.45064813, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b3g2"]
-bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmj1w"]
 atlas = ExtResource("3_6b3g2")
@@ -101,12 +98,12 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=1256672144]
 layout_mode = 0
-offset_left = 193.0
-offset_top = 380.0
-offset_right = 730.0
-offset_bottom = 435.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
+offset_left = 78.0
+offset_top = 87.0
+offset_right = 1151.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(1, 0.11372549, 0.5294118, 1)
+theme_override_font_sizes/font_size = 80
 text = "Another successful mission!"
 
 [node name="PlayAgain" type="Button" parent="." unique_id=1411494080]
@@ -115,9 +112,13 @@ offset_left = 358.0
 offset_top = 491.0
 offset_right = 558.0
 offset_bottom = 576.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
+theme_override_colors/font_pressed_color = Color(0.49803922, 0.90588236, 0.98039216, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.7058824, 0.7882353, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_xa44n")
+theme_override_styles/normal = ExtResource("2_kmj1w")
+theme_override_styles/pressed = ExtResource("3_dknn2")
+theme_override_styles/hover = ExtResource("4_k3ngq")
 text = "Play Again"
 
 [node name="ReturnToMenu" type="Button" parent="." unique_id=527010109]
@@ -126,9 +127,13 @@ offset_left = 302.0
 offset_top = 620.0
 offset_right = 618.0
 offset_bottom = 705.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.30980393, 0.85490197, 0.94509804, 1)
+theme_override_colors/font_pressed_color = Color(0.49803922, 0.90588236, 0.98039216, 1)
+theme_override_colors/font_hover_color = Color(0.15686275, 0.7058824, 0.7882353, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_6b3g2")
+theme_override_styles/normal = ExtResource("2_kmj1w")
+theme_override_styles/pressed = ExtResource("3_dknn2")
+theme_override_styles/hover = ExtResource("4_k3ngq")
 text = "Return to Main Menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1686844875]
